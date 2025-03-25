@@ -1,0 +1,77 @@
+components:
+- components:
+  - layout_properties: {col_xs: 0, row: YCZIVA, width_xs: 12}
+    name: create_form_title
+    properties: {align: center, bold: true, role: title, text: Añadir cita}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI'}
+      name: image_1
+      properties: {height: 64, source: _/theme/doctor.png}
+      type: Image
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT'}
+      name: id_input
+      properties: {}
+      type: TextBox
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,HZIQLK'}
+      name: image_2
+      properties: {height: 31, source: _/theme/reloj.png}
+      type: Image
+    - event_bindings: {tick: timer_1_tick}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,YKCZGZ'}
+      name: timer_1
+      properties: {}
+      type: Timer
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,HFMSYJ'}
+      name: appointment_timer
+      properties: {icon: ''}
+      type: Label
+    - event_bindings: {change: type_dropdown_change}
+      layout_properties: {grid_position: 'BPSISI,HXXTVJ LFOUIC,ZZADNG'}
+      name: type_dropdown
+      properties: {}
+      type: DropDown
+    - layout_properties: {grid_position: 'BPSISI,HXXTVJ PBZYGE,UJOSES'}
+      name: lbl_money
+      properties: {text: ''}
+      type: Label
+    - layout_properties: {grid_position: 'BPSISI,KHOJLB'}
+      name: description_input
+      properties: {height: 82}
+      type: TextArea
+    - layout_properties: {grid_position: 'MFTINO,HASLAU'}
+      name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+    - layout_properties: {grid_position: 'MFTINO,ANIANJ'}
+      name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+    - layout_properties: {grid_position: 'MFTINO,SIUNBU'}
+      name: spacer_3
+      properties: {height: 32}
+      type: Spacer
+    - layout_properties: {grid_position: 'MFTINO,NMEJJV'}
+      name: spacer_4
+      properties: {height: 32}
+      type: Spacer
+    - event_bindings: {click: save_button_click}
+      layout_properties: {grid_position: 'MFTINO,ELKWBP'}
+      name: save_button
+      properties: {background: '#8b8af0', foreground: 'theme:On Primary', icon: 'fa:save', text: Save}
+      type: Button
+    - event_bindings: {click: discard_button_click}
+      layout_properties: {grid_position: 'MFTINO,JKFION'}
+      name: discard_button
+      properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:save', text: Discard}
+      type: Button
+    layout_properties: {col_xs: 0, row: CKSNDO, width_xs: 12}
+    name: outlined_card_1
+    properties: {role: outlined-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'WAEEUP,GEJVEC'}
+  name: grid_panel_1
+  properties: {}
+  type: GridPanel
+container: {type: ColumnPanel}
+is_package: true

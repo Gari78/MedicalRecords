@@ -1,0 +1,10 @@
+components_by_slot:
+  content:
+  - layout_properties: {}
+    name: label_1
+    properties: {bold: true, role: title, text: Estadísticas}
+    type: Label
+is_package: true
+layout:
+  form_event_bindings: {show: form_show}
+  type: form:Template
