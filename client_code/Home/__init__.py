@@ -17,7 +17,19 @@ class Home(HomeTemplate):
     self.layout.reset_links()
     self.layout.homeLink.role='selected'
 
-  def link_1_click(self, **event_args):
+  def appointment_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Citas')
+
+  def duty_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('reports')
+
+  def reports_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('reports')
+
+  def statistics_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('stats')
 

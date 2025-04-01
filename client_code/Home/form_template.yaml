@@ -8,11 +8,42 @@ components_by_slot:
     - components:
       - layout_properties: {grid_position: 'EWFOTC,IUQRIV'}
         name: image_1
-        properties: {source: _/theme/doctor.png}
+        properties: {height: 343.6666564941406, source: _/theme/calendario.png}
         type: Image
-      event_bindings: {click: link_1_click}
+      data_bindings: []
+      event_bindings: {click: appointment_link_click}
       layout_properties: {col_xs: 1, row: GEGQYH, width_xs: 5}
-      name: link_1
+      name: appointment_link
+      properties: {}
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'UKLYDV,VFAQGB'}
+        name: image_4
+        properties: {height: 351, source: _/theme/estadisticas.png}
+        type: Image
+      event_bindings: {click: statistics_link_click}
+      layout_properties: {col_xs: 6, row: GEGQYH, width_xs: 5}
+      name: statistics_link
+      properties: {}
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'WZXTGM,HIJOFH'}
+        name: image_2
+        properties: {height: 341.7777404785156, source: _/theme/informes.png}
+        type: Image
+      event_bindings: {click: reports_link_click}
+      layout_properties: {col_xs: 1, row: RFGIQV, width_xs: 5}
+      name: reports_link
+      properties: {}
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'NQFZEJ,MNGTQA'}
+        name: image_3
+        properties: {height: 342, source: _/theme/guardias.png}
+        type: Image
+      event_bindings: {click: duty_link_click}
+      layout_properties: {col_xs: 6, row: RFGIQV, width_xs: 5}
+      name: duty_link
       properties: {}
       type: Link
     layout_properties: {}
