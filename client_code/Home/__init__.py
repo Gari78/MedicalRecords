@@ -16,3 +16,8 @@ class Home(HomeTemplate):
     """This method is called when the form is shown on the page"""
     self.layout.reset_links()
     self.layout.homeLink.role='selected'
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Citas')
+

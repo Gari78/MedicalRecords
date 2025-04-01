@@ -45,3 +45,19 @@ class createAppointment(createAppointmentTemplate):
     }
     #response = anvil.http.request("http://94.248.72.87:5000/api/v1/appointment_types/", method="GET", headers=headers, json=True)
     #return response
+
+  def id_input_focus(self, **event_args):
+    """This method is called when the TextBox gets focus"""
+    self.id_input.text = "" if "cita" in self.id_input.text else self.id_input.text
+
+
+  def description_input_focus(self, **event_args):
+    """This method is called when the text area gets focus"""
+    self.description_input.text = "" if "Notas" == self.description_input.text else self.description_input.text
+
+  def meds_input_focus(self, **event_args):
+    """This method is called when the text area gets focus"""
+    self.meds_input.text = "" if "Medicamentos" == self.meds_input.text else self.meds_input.text
+
+
+

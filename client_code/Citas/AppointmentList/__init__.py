@@ -10,8 +10,8 @@ class AppointmentList(AppointmentListTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     if self.item:
-      self.lbl_name.text = self.item.get("nombre", "jeje")
-      self.lbl_description.text = self.item.get("descripcion", "miau")
+      self.lbl_name.text = "ID: " + self.item.get("nombre", "jeje")
+      self.lbl_description.text = "Notas: " + self.item.get("descripcion", "miau")
       self.lbl_type.text = self.item.get("tipo", "miau")
       self.lbl_money.text = f"{self.item.get('dinero', 'miau')} €"
 

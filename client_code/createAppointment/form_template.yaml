@@ -5,66 +5,55 @@ components:
     properties: {align: center, bold: true, role: title, text: Añadir cita}
     type: Label
   - components:
-    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI'}
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI DZHREQ,GAIEUY'}
       name: image_1
       properties: {height: 64, source: _/theme/doctor.png}
       type: Image
-    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT'}
+    - event_bindings: {click: save_button_click}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI OVNMMZ,PZCEBG'}
+      name: save_button
+      properties: {background: '#8b8af0', foreground: 'theme:On Primary', icon: 'fa:save', text: '  Save  '}
+      type: Button
+    - event_bindings: {click: discard_button_click}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI RSRYKA,HSKHDO'}
+      name: discard_button
+      properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:trash', text: Discard}
+      type: Button
+    - data_bindings: []
+      event_bindings: {focus: id_input_focus, pressed_enter: id_input_pressed_enter}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT EGSXQD,QCDXBR'}
       name: id_input
-      properties: {}
+      properties: {text: ID de la cita}
       type: TextBox
-    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,HZIQLK'}
-      name: image_2
-      properties: {height: 31, source: _/theme/reloj.png}
-      type: Image
+    - event_bindings: {focus: description_input_focus}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT UIFLMT,RWESYU'}
+      name: description_input
+      properties: {height: 108, text: Notas}
+      type: TextArea
     - event_bindings: {tick: timer_1_tick}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,YKCZGZ'}
       name: timer_1
       properties: {}
       type: Timer
-    - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,HFMSYJ'}
-      name: appointment_timer
-      properties: {icon: ''}
-      type: Label
     - event_bindings: {change: type_dropdown_change}
-      layout_properties: {grid_position: 'BPSISI,HXXTVJ LFOUIC,ZZADNG'}
+      layout_properties: {grid_position: 'BPSISI,HXXTVJ LFOUIC,ROJZIE'}
       name: type_dropdown
       properties: {}
       type: DropDown
-    - layout_properties: {grid_position: 'BPSISI,HXXTVJ PBZYGE,UJOSES'}
+    - data_bindings: []
+      layout_properties: {grid_position: 'BPSISI,HXXTVJ LFOUIC,MZVZKT'}
       name: lbl_money
-      properties: {text: ''}
+      properties: {align: right, font_size: 16, icon: 'fa:euro', icon_align: right, text: '0'}
       type: Label
-    - layout_properties: {grid_position: 'BPSISI,KHOJLB'}
-      name: description_input
-      properties: {height: 82}
+    - layout_properties: {grid_position: 'BPSISI,HXXTVJ LFOUIC,ZAEWDA'}
+      name: appointment_timer
+      properties: {align: center, font_size: 16, icon: 'fa:clock-o', icon_align: left, text: '00:00'}
+      type: Label
+    - event_bindings: {focus: meds_input_focus}
+      layout_properties: {grid_position: 'BPSISI,HXXTVJ FFHTKX,ZPFHKF'}
+      name: meds_input
+      properties: {height: 112, text: Medicamentos}
       type: TextArea
-    - layout_properties: {grid_position: 'MFTINO,HASLAU'}
-      name: spacer_1
-      properties: {height: 32}
-      type: Spacer
-    - layout_properties: {grid_position: 'MFTINO,ANIANJ'}
-      name: spacer_2
-      properties: {height: 32}
-      type: Spacer
-    - layout_properties: {grid_position: 'MFTINO,SIUNBU'}
-      name: spacer_3
-      properties: {height: 32}
-      type: Spacer
-    - layout_properties: {grid_position: 'MFTINO,NMEJJV'}
-      name: spacer_4
-      properties: {height: 32}
-      type: Spacer
-    - event_bindings: {click: save_button_click}
-      layout_properties: {grid_position: 'MFTINO,ELKWBP'}
-      name: save_button
-      properties: {background: '#8b8af0', foreground: 'theme:On Primary', icon: 'fa:save', text: Save}
-      type: Button
-    - event_bindings: {click: discard_button_click}
-      layout_properties: {grid_position: 'MFTINO,JKFION'}
-      name: discard_button
-      properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:save', text: Discard}
-      type: Button
     layout_properties: {col_xs: 0, row: CKSNDO, width_xs: 12}
     name: outlined_card_1
     properties: {role: outlined-card}
