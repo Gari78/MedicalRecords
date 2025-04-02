@@ -37,9 +37,19 @@ components:
     properties: {height: '16'}
     type: Spacer
   - event_bindings: {click: reportsLink_click}
-    layout_properties: {grid_position: 'KSUJRT,BLKPMW'}
+    layout_properties: {grid_position: 'JMMHJE,WNWTTI'}
     name: reportsLink
     properties: {align: center, bold: true, icon: 'fa:newspaper-o', text: Informes}
+    type: Link
+  - layout_properties: {grid_position: 'ECTFSG,JOFCAL'}
+    name: spacer_4
+    properties: {height: '16'}
+    type: Spacer
+  - data_bindings: []
+    event_bindings: {click: dutyLink_click}
+    layout_properties: {grid_position: 'TIWACL,OIQVPS'}
+    name: dutyLink
+    properties: {align: center, bold: true, font: '', icon: 'fa:bomb', text: Guardias, visible: true}
     type: Link
   layout_properties: {slot: left-nav}
   name: column_panel_1

@@ -1,0 +1,107 @@
+components_by_slot:
+  content:
+  - components:
+    - layout_properties: {col_xs: 1, row: GRNRAX, width_xs: 10}
+      name: label_1
+      properties: {align: center, bold: true, role: display, text: ¡Día de Guardia!}
+      type: Label
+    - layout_properties: {col_xs: 0, row: WCQPBU, width_xs: 3}
+      name: initime_label
+      properties: {background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Hora de inicio}
+      type: Label
+    - data_bindings: []
+      layout_properties: {col_xs: 4, row: WCQPBU, width_xs: 3}
+      name: endtime_label
+      properties: {background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Hora de fin}
+      type: Label
+    - layout_properties: {col_xs: 8, row: WCQPBU, width_xs: 3}
+      name: hourmoney_label
+      properties: {background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Tarifa horaria (€/h)}
+      type: Label
+    - layout_properties: {col_xs: 0, row: LGICFO, width_xs: 3}
+      name: inittime_picker
+      properties: {background: '', pick_time: true, spacing_above: none}
+      type: DatePicker
+    - layout_properties: {col_xs: 4, row: LGICFO, width_xs: 3}
+      name: endtime_picker
+      properties: {background: '', pick_time: true, spacing_above: none}
+      type: DatePicker
+    - layout_properties: {col_xs: 8, row: LGICFO, width_xs: 3}
+      name: hourmoney_input
+      properties: {spacing_above: none}
+      type: TextBox
+    - layout_properties: {col_xs: 2, row: DOERDB, width_xs: 7}
+      name: start_button
+      properties: {role: filled-button, text: ¡Comenzamos!}
+      type: Button
+    - components:
+      - components:
+        - layout_properties: {}
+          name: clock_label
+          properties: {align: center, background: '', bold: true, font_size: 17, foreground: 'theme:Primary', spacing_below: none, text: Hora actual}
+          type: Label
+        - layout_properties: {}
+          name: clock_timer_label
+          properties: {align: center, bold: true, font_size: 24, foreground: 'theme:On Primary Container'}
+          type: Label
+        layout_properties: {grid_position: 'RCUCLV,MLFGBJ'}
+        name: linear_panel_1
+        properties: {}
+        type: LinearPanel
+      layout_properties: {col_xs: 0, row: WEPCPH, width_xs: 3}
+      name: clock_card
+      properties: {background: '#e1e7ff', role: outlined-card}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {}
+          name: money_label
+          properties: {align: center, background: '', bold: true, font_size: 17, foreground: 'theme:Primary', spacing_below: none, text: ¡Tu Pequeño Consuelo!}
+          type: Label
+        - layout_properties: {}
+          name: money_label_counter
+          properties: {align: center, bold: true, font_size: 24, foreground: 'theme:On Primary Container'}
+          type: Label
+        layout_properties: {grid_position: 'RCUCLV,MLFGBJ'}
+        name: linear_panel_1_copy_copy
+        properties: {}
+        type: LinearPanel
+      layout_properties: {col_xs: 2, row: WEPCPH, width_xs: 5}
+      name: timeleft_card_copy
+      properties: {background: '#ffe1e1', role: outlined-card}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {}
+          name: timer_label
+          properties: {align: center, background: '', bold: true, font_size: 17, foreground: 'theme:Primary', spacing_below: none, text: Tiempo Restante}
+          type: Label
+        - layout_properties: {}
+          name: timer_timer_label
+          properties: {align: center, bold: true, font_size: 24, foreground: 'theme:On Primary Container'}
+          type: Label
+        layout_properties: {grid_position: 'RCUCLV,MLFGBJ'}
+        name: linear_panel_1_copy
+        properties: {}
+        type: LinearPanel
+      layout_properties: {col_xs: 8, row: WEPCPH, width_xs: 3}
+      name: timeleft_card
+      properties: {background: '#ffe1e1', role: outlined-card}
+      type: ColumnPanel
+    - event_bindings: {show: plot_1_show}
+      layout_properties: {col_xs: 0, row: RULOUK, width_xs: 11}
+      name: plot_1
+      properties: {height: 134}
+      type: Plot
+    - layout_properties: {col_xs: 2, row: MKBTYQ, width_xs: 3}
+      name: timer_1
+      properties: {}
+      type: Timer
+    layout_properties: {}
+    name: grid_panel_1
+    properties: {}
+    type: GridPanel
+is_package: true
+layout:
+  form_event_bindings: {show: form_show}
+  type: form:Template

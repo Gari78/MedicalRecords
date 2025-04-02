@@ -1,0 +1,1 @@
+https://cdn.anychart.com/releases/8.10.0/js/anychart-bundle.min.js
