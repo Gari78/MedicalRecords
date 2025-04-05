@@ -66,8 +66,9 @@ components_by_slot:
           name: linear_panel_1_copy_copy_copy
           properties: {}
           type: LinearPanel
+        layout_properties: {}
         name: money_earned_card_phone
-        properties: {background: '#85bb65', role: outlined-card, visible: false}
+        properties: {background: '#a5cc8f', role: outlined-card, visible: false}
         type: ColumnPanel
       - components:
         - components:
@@ -160,7 +161,7 @@ components_by_slot:
           type: LinearPanel
         layout_properties: {col_xs: 3, row: JKOQOG, width_xs: 5}
         name: money_earned_card
-        properties: {background: '#85bb65', role: outlined-card, visible: false}
+        properties: {background: '#a5cc8f', role: outlined-card, visible: false}
         type: ColumnPanel
       - components:
         - components:
@@ -184,11 +185,33 @@ components_by_slot:
       name: pc_layout
       properties: {visible: false}
       type: GridPanel
-    - event_bindings: {}
-      layout_properties: {col_xs: 0, row: DOJIRA, width_xs: 11}
-      name: percentage_completed_plot
-      properties: {height: 134, visible: false}
-      type: Plot
+    - components:
+      - components:
+        - data_bindings: []
+          layout_properties: {full_width_row: true, grid_position: 'YSHHGN,FXFCCV'}
+          name: progress_label
+          properties: {align: center, background: 'theme:Primary', bold: true, foreground: 'theme:On Tertiary', spacing_above: none, spacing_below: none}
+          type: Label
+        layout_properties: {col_xs: 0, row: TBLHFZ, width_xs: 12}
+        name: progress_label_width
+        properties: {}
+        type: ColumnPanel
+      - layout_properties: {col_xs: 0, row: HRDYAV, width_xs: 2}
+        name: opercentlabel
+        properties: {bold: true, spacing_above: none, text: 0%}
+        type: Label
+      - layout_properties: {col_xs: 4, row: HRDYAV, width_xs: 3}
+        name: middlelabel
+        properties: {align: center, bold: true, spacing_above: none, text: poco a poco!}
+        type: Label
+      - layout_properties: {col_xs: 10, row: HRDYAV, width_xs: 2}
+        name: fullpercentlabel
+        properties: {align: right, bold: true, spacing_above: none, text: 100%}
+        type: Label
+      layout_properties: {col_xs: 0, row: KALJCW, width_xs: 12}
+      name: progress_bar_panel
+      properties: {}
+      type: GridPanel
     - event_bindings: {tick: timer_1_tick}
       layout_properties: {col_xs: 2, row: MKBTYQ, width_xs: 3}
       name: timer_1

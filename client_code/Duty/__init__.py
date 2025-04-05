@@ -14,6 +14,8 @@ class Duty(DutyTemplate):
         self.total_time = 0
         self.hourmoney = 0
         self.start = False
+        self.progress_label.text = "0%"
+        self.progress_label_width.width = 50
           
         
     def form_show(self, **event_args):
@@ -26,66 +28,8 @@ class Duty(DutyTemplate):
         else:
           self.phone_layout.visible = False
           self.pc_layout.visible = True
-        
-    def update_progress_bar(self, percentage):
-        """Update the progress bar using Plotly's basic functionality"""
-        # Ensure percentage is between 0 and 100
-        percentage = max(0, min(100, percentage))
-        
-        # Create a simple bar chart with one bar
-        # Use a list to represent the full bar (100%)
-        x_values = list(range(100))
-        # Create color values: blue for progress, grey for remainder
-        colors = ['rgb(72, 96, 181)' if i < percentage else 'rgb(224, 224, 224)' for i in x_values]
-        
-        # Create a basic bar chart
-        fig = go.Figure(data=[
-            go.Bar(
-                x=x_values,
-                y=[1] * 100,  # Constant height
-                marker_color=colors,
-                hoverinfo='none'
-            )
-        ])
-        
-        # Customize layout to make it look like a progress bar
-        fig.update_layout(
-            showlegend=False,
-            xaxis=dict(
-                showticklabels=False,
-                showgrid=False,
-                zeroline=False
-            ),
-            yaxis=dict(
-                showticklabels=False,
-                showgrid=False,
-                zeroline=False
-            ),
-            margin=dict(l=5, r=5, t=5, b=5),
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
-            height=50,  # Fixed height
-            bargap=0,  # Elimina el espacio entre las barras
-            annotations=[
-                dict(
-                    x=50,
-                    y=0.5,
-                    xref="x",
-                    yref="y",
-                    text=f"{int(percentage)}%",
-                    showarrow=False,
-                    font=dict(
-                      size=30,
-                      color="white" if percentage > 50 else "black",
-                      family="Arial, sans-serif",  # Fuente estándar
-                      weight="bold"  # Negrita
-                  )
-                )
-            ]
-        )
-        
-        # Set the figure to your plot component
-        self.percentage_completed_plot.figure = fig
+          
+        self.progress_bar_panel.visible = False
 
     def timer_1_tick(self, **event_args):
       """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
@@ -110,16 +54,17 @@ class Duty(DutyTemplate):
           self.timer_timer_label_phone.text = time_left_label
           self.money_label_counter_phone.text = money_label
           self.clock_timer_label_phone.text = now.strftime("%H:%M:%S")
-          
-        percentage = int(100 * sofar.total_seconds()/self.total_time)
-        self.update_progress_bar(percentage)
+        if self.total_time > 0:
+          percentage = int(100 * sofar.total_seconds()/self.total_time)
+          self.progress_label.text = f"{percentage}%"
+          self.progress_label_width.width = max(50, 0.95*min(percentage*window.innerWidth/100, 0.95*window.innerWidth))
 
     def start_button_click(self, **event_args):
       """This method is called when the button is clicked"""
       self.clock_card.visible = True
       self.timeleft_card.visible = True
       self.money_earned_card.visible = True
-      self.percentage_completed_plot.visible = True
+      self.progress_bar_panel.visible = True
       
       self.inittime = self.inittime_picker.date.replace(tzinfo=None)
       self.endtime = self.endtime_picker.date.replace(tzinfo=None)
@@ -134,7 +79,7 @@ class Duty(DutyTemplate):
       self.clock_card_phone.visible = True
       self.timeleft_card_phone.visible = True
       self.money_earned_card_phone.visible = True
-      self.percentage_completed_plot.visible = True
+      self.progress_bar_panel.visible = True
       
       self.inittime = self.inittime_picker_phone.date.replace(tzinfo=None)
       self.endtime = self.endtime_picker_phone.date.replace(tzinfo=None)
