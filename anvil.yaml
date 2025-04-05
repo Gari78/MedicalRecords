@@ -6,15 +6,9 @@ db_schema:
     columns: []
     server: full
     title: Table 1
-dependencies:
-- dep_id: dep_z4xf5ctbclpzwg
-  resolution_hints: {app_id: 5MVWE3X33M2INB7P, name: Clone of Progress Bar, package_name: ProgressBar}
-  version: {branch: master}
+dependencies: []
 name: Clone of M3 App 2
-native_deps:
-  head_html: |+
-    https://cdn.anychart.com/releases/8.10.0/js/anychart-bundle.min.js
-
+native_deps: {head_html: ''}
 package_name: progressBar
 renamed: true
 runtime_options:
