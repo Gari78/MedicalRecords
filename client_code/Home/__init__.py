@@ -21,11 +21,7 @@ class Home(HomeTemplate):
     self.statistics_link.enabled = False
     self.statistics_link_copy.enabled = False 
     self.appointment_link.enabled = False
-    self.appointment_link_copy.enabled = False    
-
-    anvil.users.login_with_form(
-      background="asset:FondoApp.png"
-    )
+    self.appointment_link_copy.enabled = False   
 
     # Any code you write here will run before the form opens.
 

@@ -26,9 +26,10 @@ color_scheme:
   - {color: 'rgba(255, 255, 255, 0.12)', name: Light Overlay 2}
   - {color: 'rgba(30, 25, 43, 0.08)', name: Dark Overlay 1}
   - {color: 'rgba(30, 25, 43, 0.12)', name: Dark Overlay 2}
-  - {color: 'rgba(103, 80, 164, 0.05)', name: Primary Overlay 1}
+  - {color: 'rgba(103, 80, 164, 0.12)', name: Primary Overlay 1}
   - {color: 'rgba(103, 80, 164, 0.08)', name: Primary Overlay 2}
   - {color: 'rgba(103, 80, 164, 0.11)', name: Primary Overlay 3}
+  - {color: 'rgba(230, 230, 230, 0.8)', name: Login Overlay 1}
   preset_groups:
   - name: Colour Scheme
     options:
@@ -324,10 +325,12 @@ roles:
 - components: [Label, Link]
   name: title
 - components: [Label, Link]
+  display_in_toolbox: false
   name: body
-- components: [DataGrid]
-  name: tonal-data-grid
+- {components: null, name: tonal-data-grid}
 - components: [TextBox, TextArea, DatePicker, DropDown]
   name: outlined-error
 - components: [TextBox, TextArea, DatePicker, DropDown]
   name: input-error
+- components: [Button]
+  name: square button

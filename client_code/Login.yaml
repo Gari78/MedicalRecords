@@ -1,0 +1,58 @@
+components:
+- components:
+  - components:
+    - components:
+      - name: text_box_1
+        properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Correo Electrónico}
+        type: TextBox
+      - layout_properties: {}
+        name: text_box_1_copy_2
+        properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Contraseña}
+        type: TextBox
+      - event_bindings: {click: login_button_click}
+        layout_properties: {width: null}
+        name: login_button
+        properties:
+          background: theme:Outline
+          foreground: theme:On Primary
+          role: null
+          spacing:
+            padding: [0, 62, 0, 55]
+          text: Login
+        type: Button
+      layout_properties: {width: 185, x: 8.5, y: 61.09375}
+      name: rich_text_1
+      properties:
+        content: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> \n  <title>Markdown Example</title>\n  <style>\n    h2 { \n      font-size: 16px; \n      color: black;\n      font-weight: bold;\n    }\n    h5 { \n      font-size: 10px; \n      color: gray;\n      font-weight: bold;\n    }\n    h6 { \n      font-size: 10px; \n      color: gray;\n      font-weight: normal;\n    }\n  </style>\n</head>\n<body>\n  <!-- Title and subtitle -->\n  <h2 style=\"padding-left: 8px;\"><b>Bienvenido</b></h2>\n  <h6 style=\"padding-left: 8px;\"><b>Inicia sesión para continuar</h6>\n</body>\n</html>"
+        format: restricted_html
+        spacing_above: none
+        spacing_below: none
+      type: RichText
+    - components:
+      - layout_properties: {grid_position: 'QSROHK,BAWCCE'}
+        name: google
+        properties: {height: 21, source: 'https://www.svgrepo.com/show/475656/google-color.svg'}
+        type: Image
+      layout_properties: {width: 44, x: 11.140625, y: 295.140625}
+      name: link_1
+      properties: {}
+      type: Link
+    - layout_properties: {width: 131.40625, x: 62.140625, y: 295.140625}
+      name: link_2
+      properties: {font_size: 12, text: Continuar con google}
+      type: Link
+    layout_properties: {width: 203, x: 87.140625, y: 0}
+    name: xy_panel_2
+    properties: {background: 'theme:Login Overlay 1', height: 458, spacing_above: none, spacing_below: none}
+    type: XYPanel
+  layout_properties: {full_width_row: true, grid_position: 'JDXMBL,YIAZKL'}
+  name: xy_panel_1
+  properties: {height: 444, role: tonal-card}
+  type: XYPanel
+container: {type: ColumnPanel}
+events:
+- {default_event: true, name: event}
+is_package: false
+properties:
+- {default_binding_prop: true, default_value: '', important: true, name: prop, type: string}
+slots: {}
