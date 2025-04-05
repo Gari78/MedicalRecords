@@ -24,7 +24,7 @@ class Home(HomeTemplate):
     """This method is called when the form is shown on the page"""
     self.layout.reset_links()
     self.layout.homeLink.role='selected'
-    if window.innerHeight > window.innerWidth and window.innerWidth < 200:
+    if window.innerHeight > window.innerWidth:
       self.phone_panel.visible = True
       self.pc_panel.visible = False
       
