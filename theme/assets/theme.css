@@ -738,6 +738,12 @@ button.close > span, button.close {
   padding: 15px;
 }
 
+.anvil-role-login-background-card {
+  background-image: url('/_/theme/assets/FondoApp.png');
+  background-size: cover;
+  background-position: center;
+}
+
 
 /* full_width_row sections go full bleed */
 .column-panel.anvil-role-card > .anvil-panel-section > .anvil-panel-section-container.full-width-row {
@@ -1046,3 +1052,5 @@ div.plot-container.plotly svg.main-svg {
 .anvil-spinner {
     --anvil-spinner-bg: %color:Surface Variant%;
 }
+
+
