@@ -2,46 +2,93 @@ components_by_slot:
   content:
   - components:
     - components:
-      - layout_properties: {grid_position: 'EWFOTC,IUQRIV'}
-        name: image_1
-        properties: {height: 343.6666564941406, source: _/theme/calendario.png}
-        type: Image
-      data_bindings: []
-      event_bindings: {click: appointment_link_click}
-      layout_properties: {col_xs: 1, row: GEGQYH, width_xs: 5}
-      name: appointment_link
-      properties: {}
-      type: Link
+      - components:
+        - layout_properties: {grid_position: 'EWFOTC,IUQRIV'}
+          name: appointments_image
+          properties: {height: 343.6666564941406, source: _/theme/calendario.png}
+          type: Image
+        data_bindings: []
+        event_bindings: {click: appointment_link_click}
+        layout_properties: {col_xs: 0, row: YJMNJQ, width_xs: 6}
+        name: appointment_link
+        properties: {col_spacing: none}
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'UKLYDV,VFAQGB'}
+          name: stats_image
+          properties: {height: 351, source: _/theme/estadisticas.png}
+          type: Image
+        event_bindings: {click: statistics_link_click}
+        layout_properties: {col_xs: 6, row: YJMNJQ, width_xs: 6}
+        name: statistics_link
+        properties: {}
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'WZXTGM,HIJOFH'}
+          name: reports_image
+          properties: {height: 341.7777404785156, source: _/theme/informes.png}
+          type: Image
+        event_bindings: {click: reports_link_click}
+        layout_properties: {col_xs: 0, row: XWKECP, width_xs: 6}
+        name: reports_link
+        properties: {}
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'NQFZEJ,MNGTQA'}
+          name: duty_image
+          properties: {height: 342, source: _/theme/guardias.png}
+          type: Image
+        event_bindings: {click: duty_link_click}
+        layout_properties: {col_xs: 6, row: XWKECP, width_xs: 6}
+        name: duty_link
+        properties: {}
+        type: Link
+      layout_properties: {col_xs: 0, row: QXLVQO, width_xs: 12}
+      name: pc_panel
+      properties: {visible: false}
+      type: GridPanel
     - components:
-      - layout_properties: {grid_position: 'UKLYDV,VFAQGB'}
-        name: image_4
-        properties: {height: 351, source: _/theme/estadisticas.png}
-        type: Image
-      event_bindings: {click: statistics_link_click}
-      layout_properties: {col_xs: 6, row: GEGQYH, width_xs: 5}
-      name: statistics_link
-      properties: {}
-      type: Link
-    - components:
-      - layout_properties: {grid_position: 'WZXTGM,HIJOFH'}
-        name: image_2
-        properties: {height: 341.7777404785156, source: _/theme/informes.png}
-        type: Image
-      event_bindings: {click: reports_link_click}
-      layout_properties: {col_xs: 1, row: RFGIQV, width_xs: 5}
-      name: reports_link
-      properties: {}
-      type: Link
-    - components:
-      - layout_properties: {grid_position: 'NQFZEJ,MNGTQA'}
-        name: image_3
-        properties: {height: 342, source: _/theme/guardias.png}
-        type: Image
-      event_bindings: {click: duty_link_click}
-      layout_properties: {col_xs: 6, row: RFGIQV, width_xs: 5}
-      name: duty_link
-      properties: {}
-      type: Link
+      - components:
+        - layout_properties: {grid_position: 'EWFOTC,IUQRIV'}
+          name: appointments_image_small
+          properties: {height: '150', source: _/theme/calendario.png}
+          type: Image
+        data_bindings: []
+        event_bindings: {click: appointment_link_click}
+        name: appointment_link_copy
+        properties: {}
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'UKLYDV,VFAQGB'}
+          name: stats_image_small
+          properties: {height: '150', source: _/theme/estadisticas.png}
+          type: Image
+        event_bindings: {click: statistics_link_click}
+        name: statistics_link_copy
+        properties: {}
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'WZXTGM,HIJOFH'}
+          name: reports_image_small
+          properties: {height: '150', source: _/theme/informes.png}
+          type: Image
+        event_bindings: {click: reports_link_click}
+        name: reports_link_copy
+        properties: {}
+        type: Link
+      - components:
+        - layout_properties: {grid_position: 'NQFZEJ,MNGTQA'}
+          name: duty_image_small
+          properties: {height: '150', source: _/theme/guardias.png}
+          type: Image
+        event_bindings: {click: duty_link_click}
+        name: duty_link_copy
+        properties: {}
+        type: Link
+      layout_properties: {col_xs: 0, row: CCIHUM, width_xs: 12}
+      name: phone_panel
+      properties: {visible: false}
+      type: LinearPanel
     layout_properties: {}
     name: grid_panel_1
     properties: {}
