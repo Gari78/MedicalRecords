@@ -6,7 +6,10 @@ db_schema:
     columns: []
     server: full
     title: Table 1
-dependencies: []
+dependencies:
+- dep_id: dep_z4xf5ctbclpzwg
+  resolution_hints: {app_id: 5MVWE3X33M2INB7P, name: Clone of Progress Bar, package_name: ProgressBar}
+  version: {branch: master}
 name: Clone of M3 App 2
 native_deps:
   head_html: |+
