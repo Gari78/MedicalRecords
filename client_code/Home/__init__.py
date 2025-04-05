@@ -1,10 +1,15 @@
 from ._anvil_designer import HomeTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil.js import window
+import anvil.users
+import anvil.server
 
 
 class Home(HomeTemplate):
@@ -17,6 +22,10 @@ class Home(HomeTemplate):
     self.statistics_link_copy.enabled = False 
     self.appointment_link.enabled = False
     self.appointment_link_copy.enabled = False    
+
+    anvil.users.login_with_form(
+      background="asset:FondoApp.png"
+    )
 
     # Any code you write here will run before the form opens.
 

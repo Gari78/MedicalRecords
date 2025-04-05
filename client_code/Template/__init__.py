@@ -1,5 +1,8 @@
 from ._anvil_designer import TemplateTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 from anvil import js
 import anvil.tables as tables
@@ -11,11 +14,6 @@ class Template(TemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    print(self.__class__.__name__)
-    if self.__class__.__name__ == "Template":
-      js.window.setTimeout(lambda: open_form('Home'), 100)
-
-    # Any code you write here will run before the form opens.
 
   def appointmentsLink_click(self, **event_args):
     """This method is called when the link is clicked"""
