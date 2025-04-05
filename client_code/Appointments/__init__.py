@@ -39,7 +39,7 @@ class Appointments(AppointmentsTemplate):
 
   def addAppointmentButton_click(self, **event_args):
     """This method is called when the button is clicked"""
-    from ..createAppointment import createAppointment
+    from .createAppointment import createAppointment
     popup = createAppointment()
     open_form(popup)
     
