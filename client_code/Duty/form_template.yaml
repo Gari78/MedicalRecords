@@ -6,8 +6,40 @@ components_by_slot:
       properties: {align: center, bold: true, role: display, text: ¡Día de Guardia!}
       type: Label
     - components:
+      - name: spacer_2
+        properties: {height: 32}
+        type: Spacer
+      - layout_properties: {}
+        name: initime_label_phone
+        properties: {align: center, background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Hora de inicio}
+        type: Label
+      - event_bindings: {}
+        name: inittime_picker_phone
+        properties: {background: '', pick_time: true, spacing_above: none}
+        type: DatePicker
+      - data_bindings: []
+        name: endtime_label_phone
+        properties: {align: center, background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Hora de fin}
+        type: Label
+      - name: endtime_picker_phone
+        properties: {background: '', pick_time: true, spacing_above: none}
+        type: DatePicker
+      - layout_properties: {}
+        name: hourmoney_label_phone
+        properties: {align: center, background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Salario hora (€/h)}
+        type: Label
+      - name: hourmoney_input_phone
+        properties: {spacing_above: none}
+        type: TextBox
+      - event_bindings: {click: start_button_phone_click}
+        name: start_button_phone
+        properties: {role: filled-button, text: ¡Comenzamos!}
+        type: Button
       - components:
         - components:
+          - name: spacer_2_copy
+            properties: {height: 32}
+            type: Spacer
           - layout_properties: {}
             name: timer_label_phone
             properties: {align: center, background: '', bold: true, font_size: 17, foreground: 'theme:Primary', spacing_below: none, text: Tiempo Restante}
@@ -57,35 +89,6 @@ components_by_slot:
         name: clock_card_phone
         properties: {background: '#e1e7ff', role: outlined-card, visible: false}
         type: ColumnPanel
-      - name: spacer_2
-        properties: {height: 32}
-        type: Spacer
-      - layout_properties: {}
-        name: initime_label_phone
-        properties: {align: center, background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Hora de inicio}
-        type: Label
-      - event_bindings: {}
-        name: inittime_picker_phone
-        properties: {background: '', pick_time: true, spacing_above: none}
-        type: DatePicker
-      - data_bindings: []
-        name: endtime_label_phone
-        properties: {align: center, background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Hora de fin}
-        type: Label
-      - name: endtime_picker_phone
-        properties: {background: '', pick_time: true, spacing_above: none}
-        type: DatePicker
-      - layout_properties: {}
-        name: hourmoney_label_phone
-        properties: {align: center, background: '', bold: true, font_size: -1, foreground: 'theme:Primary', spacing_below: none, text: Salario hora (€/h)}
-        type: Label
-      - name: hourmoney_input_phone
-        properties: {spacing_above: none}
-        type: TextBox
-      - event_bindings: {click: start_button_phone_click}
-        name: start_button_phone
-        properties: {role: filled-button, text: ¡Comenzamos!}
-        type: Button
       layout_properties: {col_xs: 0, row: JQEUQR, width_xs: 12}
       name: phone_layout
       properties: {visible: false}
