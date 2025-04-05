@@ -734,16 +734,12 @@ button.close > span, button.close {
 .anvil-role-tonal-card {
   overflow: hidden;
   border-radius: 12px;
-  background-color: %color:Surface Variant%;
-  padding: 15px;
-}
-
-.anvil-role-login-background-card {
+  background-color: rgba(var(--palette-surface-variant-rgb), 0.7); /* Ajusta la opacidad del fondo */
   background-image: url('/_/theme/assets/FondoApp.png');
   background-size: cover;
   background-position: center;
+  padding: 15px;
 }
-
 
 /* full_width_row sections go full bleed */
 .column-panel.anvil-role-card > .anvil-panel-section > .anvil-panel-section-container.full-width-row {
