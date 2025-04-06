@@ -712,6 +712,36 @@ button.close > span, button.close {
   background-color: transparent;
 }
 
+/* Nuevo estilo de botón rectangular con ancho completo */
+.anvil-role-full-width-button > .btn, .anvil-role-full-width-button.file-loader>label {
+  width: 100%;                      /* Ocupa todo el ancho disponible */
+  border-radius: 8px;               /* Bordes redondeados (menos pronunciados) */
+  background-color: %color:Primary%; /* Color de fondo sólido */
+  color: %color:On Primary%;        /* Color del texto */
+  padding: 12px 20px;               /* Espaciado interno */
+  text-align: center;               /* Texto centrado */
+  font-weight: 500;                 /* Peso de la fuente */
+  box-shadow: none;                 /* Sin sombra por defecto */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+.anvil-role-full-width-button > .btn:hover, .anvil-role-full-width-button.file-loader>label:hover {
+  background: linear-gradient(0deg, %color:Light Overlay 1%, %color:Light Overlay 1%), %color:Primary%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.anvil-role-full-width-button > .btn:active, .anvil-role-full-width-button > .btn:focus,
+.anvil-role-full-width-button.file-loader>label:active, .anvil-role-full-width-button.file-loader>label:focus {
+  background: linear-gradient(0deg, %color:Light Overlay 2%, %color:Light Overlay 2%), %color:Primary%;
+  box-shadow: none;
+}
+
+.anvil-role-full-width-button > .btn[disabled], .anvil-role-full-width-button > .btn[disabled]:hover,
+.anvil-role-full-width-button.file-loader.anvil-disabled>label, .anvil-role-full-width-button.file-loader.anvil-disabled>label:hover {
+  background: %color:Disabled Container%;
+  color: %color:On Disabled%;
+  box-shadow: none;
+}
 
 /* Component: Card */
 
