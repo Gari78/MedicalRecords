@@ -6,6 +6,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvil import alert
 
 
 class Login(LoginTemplate):
@@ -15,7 +16,11 @@ class Login(LoginTemplate):
 
   def login_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('Home')
+    res = self.login_keycloak(email = self.mail_input.text, pwd = self.pwd_input.text)
+    if res["status"] == 200:
+      open_form('Home')
+    else:
+      alert("El usuario o contraseña introducidos no son correctos", title="Error Autenticación", large=True, buttons=[("OK", None)])
 
   def mail_input_focus(self, **event_args):
     self.mail_input.text = "" if "Correo Elec" in self.mail_input.text else self.mail_input.text
@@ -27,4 +32,8 @@ class Login(LoginTemplate):
     """This method is called when the link is clicked"""
     open_form('Home')
 
-  def
+  def login_keycloak(self, email, pwd):
+    if email == "alfonso.garijo@soologic.com" and pwd == "aerosmith":
+      return {"status": 200}
+    else:
+      return {"status": 401}

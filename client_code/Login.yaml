@@ -3,13 +3,14 @@ components:
   - components:
     - components:
       - event_bindings: {focus: mail_input_focus}
+        layout_properties: {}
         name: mail_input
-        properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Correo Electrónico}
+        properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Correo Electrónico, type: email}
         type: TextBox
       - event_bindings: {focus: pwd_input_focus}
         layout_properties: {}
         name: pwd_input
-        properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Contraseña}
+        properties: {background: 'theme:On Primary', font_size: 12, hide_text: true, role: null, text: Contraseña}
         type: TextBox
       - event_bindings: {click: login_button_click}
         layout_properties: {width: null}

@@ -38,6 +38,7 @@ components:
       type: TextArea
     - components:
       - data_bindings: []
+        event_bindings: {click: edit_button_click}
         layout_properties: {}
         name: edit_button
         properties: {background: 'theme:nice_button_blue', foreground: 'theme:On Primary', icon: 'fa:edit', role: full-width-button, text: ''}

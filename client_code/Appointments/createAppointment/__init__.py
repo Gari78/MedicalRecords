@@ -12,7 +12,7 @@ import anvil.http
 
 
 class createAppointment(createAppointmentTemplate):
-  def __init__(self, **properties):
+  def __init__(self, cita=None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #types = self.getRequest()
@@ -20,10 +20,21 @@ class createAppointment(createAppointmentTemplate):
     self.type_dropdown.items = ["Normal", "Telemático", "Urgente", "Privado"]
     self.startTime = int(time.time())
 
-    # Any code you write here will run before the form opens.
+    self.cita = cita  # Guardamos la cita por si es una edición
+
+    if self.cita:
+      # Rellenar los campos con los datos existentes
+      self.id_input.text = str(cita.get('nombre', ''))
+      self.description_input.text = cita.get('descripcion', '')
+      self.meds_input.text = cita.get('medicamentos', '')
+      self.type_dropdown.selected_value = cita.get('tipo', 'Normal')
 
   def save_button_click(self, **event_args):
-    open_form('Appointments')
+    if self.cita:
+      # Llamar al endpoint de editar la información
+      open_form('Appointments')
+    else:
+      open_form('Appointments')      
 
   def discard_button_click(self, **event_args):
     open_form('Appointments')

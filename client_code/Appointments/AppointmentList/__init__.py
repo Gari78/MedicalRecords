@@ -20,3 +20,9 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_date.text = f"{self.item.get('date', 'miau')}"
 
     # Any code you write here will run before the form opens.
+
+  def edit_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    from ..createAppointment import createAppointment
+    popup = createAppointment(self.item)
+    open_form(popup)
