@@ -30,6 +30,7 @@ color_scheme:
   - {color: 'rgba(103, 80, 164, 0.08)', name: Primary Overlay 2}
   - {color: 'rgba(103, 80, 164, 0.11)', name: Primary Overlay 3}
   - {color: 'rgba(230, 230, 230, 0.8)', name: Login Overlay 1}
+  - {color: '#8b8af0', name: nice_button_blue}
   preset_groups:
   - name: Colour Scheme
     options:

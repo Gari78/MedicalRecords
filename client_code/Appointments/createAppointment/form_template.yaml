@@ -7,24 +7,24 @@ components:
   - components:
     - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI DZHREQ,GAIEUY'}
       name: image_1
-      properties: {height: 129, source: _/theme/doctor.png}
+      properties: {height: 133, source: _/theme/doctor.png}
       type: Image
     - layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI NMWLWN,BKVDJP'}
       name: spacer_1
-      properties: {height: 32}
+      properties: {height: 26}
       type: Spacer
     - event_bindings: {click: save_button_click}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI OVNMMZ,PZCEBG'}
       name: save_button
-      properties: {background: '#8b8af0', foreground: 'theme:On Primary', icon: 'fa:save', text: '  Save  '}
+      properties: {background: '#8b8af0', foreground: 'theme:On Primary', icon: 'fa:save', role: full-width-button, text: '  Save  '}
       type: Button
     - event_bindings: {click: discard_button_click}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,MECUBI RSRYKA,HSKHDO'}
       name: discard_button
-      properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:trash', text: Discard}
+      properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:trash', role: full-width-button, text: Discard}
       type: Button
     - data_bindings: []
-      event_bindings: {focus: id_input_focus, pressed_enter: id_input_pressed_enter}
+      event_bindings: {focus: id_input_focus}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT EGSXQD,QCDXBR'}
       name: id_input
       properties: {text: ID de la cita}
@@ -32,7 +32,7 @@ components:
     - event_bindings: {focus: description_input_focus}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT UIFLMT,RWESYU'}
       name: description_input
-      properties: {height: 215, text: Notas}
+      properties: {height: 216, text: Notas}
       type: TextArea
     - event_bindings: {tick: timer_1_tick}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,YKCZGZ'}

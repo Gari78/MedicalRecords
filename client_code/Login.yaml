@@ -2,11 +2,13 @@ components:
 - components:
   - components:
     - components:
-      - name: text_box_1
+      - event_bindings: {focus: mail_input_focus}
+        name: mail_input
         properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Correo Electrónico}
         type: TextBox
-      - layout_properties: {}
-        name: text_box_1_copy_2
+      - event_bindings: {focus: pwd_input_focus}
+        layout_properties: {}
+        name: pwd_input
         properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Contraseña}
         type: TextBox
       - event_bindings: {click: login_button_click}
@@ -37,7 +39,8 @@ components:
       name: link_1
       properties: {}
       type: Link
-    - layout_properties: {width: 131.40625, x: 62.140625, y: 295.140625}
+    - event_bindings: {click: link_2_click}
+      layout_properties: {width: 131.40625, x: 62.140625, y: 295.140625}
       name: link_2
       properties: {font_size: 12, text: Continuar con google}
       type: Link

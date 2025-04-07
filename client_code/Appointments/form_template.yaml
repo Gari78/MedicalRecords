@@ -9,33 +9,39 @@ components_by_slot:
       name: image_1
       properties: {height: 41, horizontal_align: right, source: _/theme/lupa.png}
       type: Image
-    - data_bindings:
-      - {code: '#6750A4', property: border, writeback: false}
+    - data_bindings: []
+      event_bindings: {change: finder_input_change, focus: finder_input_focus}
       layout_properties: {col_xs: 1, row: RCPOJP, width_xs: 8}
       name: finder_input
       properties: {background: 'theme:On Primary', hide_text: false, role: outlined, text: Búsqueda}
       type: TextBox
-    - layout_properties: {col_xs: 9, row: RCPOJP, width_xs: 3}
+    - event_bindings: {click: filters_button_click}
+      layout_properties: {col_xs: 9, row: RCPOJP, width_xs: 3}
       name: filters_button
       properties: {background: 'theme:Outline', role: full-width-button, text: Filtros}
       type: Button
-    - layout_properties: {col_xs: 0, row: PYIRBO, width_xs: 3}
-      name: date_picker_1
-      properties: {}
+    - layout_properties: {col_xs: 0, row: MTGWQC, width_xs: 3}
+      name: init_date_picker
+      properties: {visible: false}
       type: DatePicker
-    - layout_properties: {col_xs: 3, row: PYIRBO, width_xs: 3}
-      name: date_picker_1_copy
-      properties: {}
+    - layout_properties: {col_xs: 3, row: MTGWQC, width_xs: 3}
+      name: end_date_picker
+      properties: {visible: false}
       type: DatePicker
-    - layout_properties: {col_xs: 10, row: PYIRBO, width_xs: 2}
-      name: filters_button_copy
-      properties: {background: 'theme:Outline', role: full-width-button, text: Aplicar}
+    - layout_properties: {col_xs: 6, row: MTGWQC, width_xs: 3}
+      name: type_drop_down
+      properties: {visible: false}
+      type: DropDown
+    - event_bindings: {click: apply_filters_click}
+      layout_properties: {col_xs: 9, row: MTGWQC, width_xs: 3}
+      name: apply_filters
+      properties: {background: 'theme:Outline', role: full-width-button, text: Aplicar, visible: false}
       type: Button
     - event_bindings: {click: addAppointmentButton_click}
       layout_properties: {col_xs: 0, row: DTMKGE, width_xs: 12}
       name: addAppointmentButton
       properties:
-        background: '#8b8af0'
+        background: theme:nice_button_blue
         foreground: theme:On Primary
         role: full-width-button
         spacing:

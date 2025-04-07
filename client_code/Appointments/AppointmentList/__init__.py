@@ -17,6 +17,6 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_name.text = "ID: " + self.item.get("nombre", "jeje")
       self.lbl_description.text = "Notas: " + self.item.get("descripcion", "miau")
       self.lbl_type.text = self.item.get("tipo", "miau")
-      self.lbl_money.text = f"{self.item.get('dinero', 'miau')} €"
+      self.lbl_date.text = f"{self.item.get('date', 'miau')}"
 
     # Any code you write here will run before the form opens.
