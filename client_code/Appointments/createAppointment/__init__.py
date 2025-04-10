@@ -17,8 +17,9 @@ class createAppointment(createAppointmentTemplate):
     self.init_components(**properties)
     #types = self.getRequest()
     #print(types)
-    types = anvil.server.call("get_all_types")["content"]
-    self.type_dropdown.items = list(types.keys())
+    self.types = anvil.server.call("get_all_types")["content"]
+    self.type_dropdown.items = [type["name"] for type in self.types]
+    self.lbl_money.text = str(self.find_money())
     self.startTime = int(time.time())
 
     self.cita = cita  # Guardamos la cita por si es una edición
@@ -30,7 +31,7 @@ class createAppointment(createAppointmentTemplate):
       self.meds_input.text = cita.get('medicamentos', '')
       self.type_dropdown.selected_value = cita.get('tipo', 'Normal')
       
-      self.lbl_money.text = str(self.find_money)
+      self.lbl_money.text = str(self.find_money())
 
   def save_button_click(self, **event_args):
     if self.cita:
@@ -44,7 +45,7 @@ class createAppointment(createAppointmentTemplate):
 
   def type_dropdown_change(self, **event_args):
     """This method is called when an item is selected"""
-    pass
+    self.lbl_money.text = str(self.find_money())
 
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
@@ -77,8 +78,8 @@ class createAppointment(createAppointmentTemplate):
     """This method is called when the text area gets focus"""
     self.meds_input.text = "" if "Medicamentos" == self.meds_input.text else self.meds_input.text
 
-  def find_money(self,types):
-    return [type["money"] for type in types if type["name"] == self.type_dropdown.selected_value][0]
+  def find_money(self):
+    return [type["money"] for type in self.types if type["name"] == self.type_dropdown.selected_value][0]
 
 
 

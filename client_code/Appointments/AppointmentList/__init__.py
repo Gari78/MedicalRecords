@@ -17,7 +17,7 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_name.text = "ID: " + self.item.get("name", "jeje")
       self.lbl_description.text = "Notas: " + self.item.get("notes", "miau")
       self.lbl_meds.text = "Medicamentos: " + self.item.get("meds", "miau")
-      self.lbl_type.text = f"{self.item.get('type', 'miau')}: {self.item.get('money', 'miau')}"
+      self.lbl_type.text = f"{self.item.get('type', 'miau')}: {self.item.get('money', 'miau')}€"
       self.lbl_date.text = f"{self.item.get('date', 'miau')}"
       timelapse = int(self.item.get('timelapse','0'))
       elapsed_minutes = timelapse // 60
