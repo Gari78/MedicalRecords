@@ -65,27 +65,13 @@ class Appointments(AppointmentsTemplate):
     auxdata = []
     for item in self.data:
       find = self.finder_input.text.lower()
-      fields = [item['descripcion'], item['nombre'], item['tipo']]
+      fields = [item['notes'], item['name'], item['type']]
       if any(find in field.lower() for field in fields):
           auxdata.append(item)
     self.AppointmentListPanel.items = auxdata
 
   def appointments_get_all(self):
-    return [
-        {"nombre": "235769dkj", "descripcion": "Le dolía el alma", "tipo": "Normal", "dinero": "7,4", "date":"01-01-2025"},
-        {"nombre": "jdj532gds", "descripcion": "El bombero con dolor de abdominales", "tipo": "urgente", "dinero": "10", "date":"01-01-2025"},
-        {"nombre": "jf84jdo20", "descripcion": "Zanahorio", "tipo": "privado", "dinero": "25", "date":"01-01-2025"},
-        {"nombre": "8fdg73hds", "descripcion": "Gato filósofo", "tipo": "normal", "dinero": "7,4", "date":"01-01-2025"},
-        {"nombre": "4jfk93kdl", "descripcion": "Un pez llamado Juan", "tipo": "privado", "dinero": "25", "date":"01-01-2025"},
-        {"nombre": "0djh392fk", "descripcion": "La montaña de los sueños", "tipo": "urgente", "dinero": "10", "date":"01-01-2025"},
-        {"nombre": "9gdh28sjk", "descripcion": "Mago sin varita", "tipo": "normal", "dinero": "7,4", "date":"01-01-2025"},
-        {"nombre": "kl39dkf02", "descripcion": "Camino de caramelos", "tipo": "privado", "dinero": "25", "date":"01-01-2025"},
-        {"nombre": "p2jfk38d9", "descripcion": "El hombre que hablaba con sombras", "tipo": "urgente", "dinero": "10", "date":"01-01-2025"},
-        {"nombre": "z8fk392ld", "descripcion": "Biblioteca encantada", "tipo": "normal", "dinero": "7,4", "date":"01-01-2025"},
-        {"nombre": "xj29fk30s", "descripcion": "Dragón dormilón", "tipo": "privado", "dinero": "25", "date":"01-01-2025"},
-        {"nombre": "m3ldk49jf", "descripcion": "Pirata sin barco", "tipo": "urgente", "dinero": "10", "date":"01-01-2025"},
-        {"nombre": "h4dk39sla", "descripcion": "Los zapatos del destino", "tipo": "normal", "dinero": "7,4", "date":"01-01-2025"}
-    ]
+    return anvil.server.call("get_all_appointments")["content"]
     
       
     

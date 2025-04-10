@@ -26,4 +26,5 @@ unique_ids:
     stats: '1741723712602406350497061.2479'
   modules: {}
   scripts: {}
-  server_modules: {}
+  server_modules:
+    ServerModule1: '1744305607664360077521797.22'

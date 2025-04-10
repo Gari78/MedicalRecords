@@ -21,7 +21,7 @@ components:
         properties: {align: center, icon: '', icon_align: right, text: ''}
         type: Label
       - layout_properties: {grid_position: 'KZRFYN,EUNJLY'}
-        name: label_1
+        name: lbl_timelapse
         properties: {align: left, icon: 'fa:clock-o', text: '00:00'}
         type: Label
       layout_properties: {expand: false, width: 208}
