@@ -1,0 +1,117 @@
+components:
+- components:
+  - components:
+    - layout_properties: {expand: false}
+      name: image_1
+      properties: {height: 73, source: _/theme/informes.png}
+      type: Image
+    - components:
+      - layout_properties: {grid_position: 'ZWNNJK,WULUNY'}
+        name: total_patients_lbl
+        properties: {text: Pacientes Totales}
+        type: Label
+      - layout_properties: {grid_position: 'QANUHD,LBDJTS'}
+        name: gross_income_lbl
+        properties: {text: Ingreso bruto total}
+        type: Label
+      - layout_properties: {grid_position: 'IOGNZV,SKRAZR'}
+        name: net_income_lbl
+        properties: {text: Salario neto}
+        type: Label
+      layout_properties: {expand: false, width: 156}
+      name: total_panel
+      properties: {}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'ZWNNJK,WULUNY'}
+        name: normal_patients_lbl
+        properties: {text: Pacientes Normales Totales}
+        type: Label
+      - layout_properties: {grid_position: 'FTDNLJ,DZUYSZ'}
+        name: normal_patients_perc_lbl
+        properties: {text: Porcentaje Normales}
+        type: Label
+      - layout_properties: {grid_position: 'QANUHD,LBDJTS'}
+        name: normal_gross_income_lbl
+        properties: {text: Ingreso bruto normales}
+        type: Label
+      layout_properties: {width: 184.844}
+      name: normal_panel
+      properties: {}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'ZWNNJK,WULUNY'}
+        name: tele_patients_lbl
+        properties: {text: Pacientes tele}
+        type: Label
+      - layout_properties: {grid_position: 'FTDNLJ,DZUYSZ'}
+        name: tele_patients_perc_lbl
+        properties: {text: Porcentaje  tele}
+        type: Label
+      - layout_properties: {grid_position: 'QANUHD,LBDJTS'}
+        name: tele_gross_income_lbl
+        properties: {text: Ingreso bruto tele}
+        type: Label
+      layout_properties: {width: 165.766}
+      name: tele_panel
+      properties: {}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'ZWNNJK,WULUNY'}
+        name: urgents_patients_lbl
+        properties: {text: Pacientes urgentes}
+        type: Label
+      - layout_properties: {grid_position: 'FTDNLJ,DZUYSZ'}
+        name: urgents_patients_perc_lbl
+        properties: {text: Porcentaje urgentes}
+        type: Label
+      - layout_properties: {grid_position: 'QANUHD,LBDJTS'}
+        name: urgents_gross_income_lbl
+        properties: {text: Ingreso bruto urgentes}
+        type: Label
+      layout_properties: {width: 160.875}
+      name: urgents_panel
+      properties: {}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'ZWNNJK,WULUNY'}
+        name: private_patients_lbl
+        properties: {text: Pacientes Privados}
+        type: Label
+      - layout_properties: {grid_position: 'FTDNLJ,DZUYSZ'}
+        name: private_patients_perc_lbl
+        properties: {text: Porcentaje Privados}
+        type: Label
+      - layout_properties: {grid_position: 'QANUHD,LBDJTS'}
+        name: private_gross_income_lbl
+        properties: {text: Ingreso bruto Privados}
+        type: Label
+      layout_properties: {width: 159.859}
+      name: private_panel
+      properties: {}
+      type: ColumnPanel
+    - components:
+      - data_bindings: []
+        event_bindings: {click: edit_button_click}
+        layout_properties: {}
+        name: edit_button
+        properties: {background: 'theme:nice_button_blue', foreground: 'theme:On Primary', icon: 'fa:edit', role: full-width-button, text: ''}
+        type: Button
+      - layout_properties: {}
+        name: delete_button
+        properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:trash', role: full-width-button, text: ''}
+        type: Button
+      layout_properties: {expand: false, width: 74}
+      name: linear_panel_1
+      properties: {}
+      type: LinearPanel
+    layout_properties: {full_width_row: true, grid_position: 'DIJZGY,ONGZAF'}
+    name: flow_panel_1
+    properties: {}
+    type: FlowPanel
+  layout_properties: {full_width_row: true, grid_position: 'TCOTAV,KRLRNZ'}
+  name: outlined_card_1
+  properties: {role: outlined-card}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

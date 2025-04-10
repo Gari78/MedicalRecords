@@ -1,5 +1,58 @@
 components_by_slot:
-  content: []
+  content:
+  - components:
+    - layout_properties: {col_xs: 0, row: GDUAYB, width_xs: 3}
+      name: TitleLabel
+      properties: {bold: true, font_size: null, italic: false, role: title, text: '', underline: false}
+      type: Label
+    - layout_properties: {col_xs: 0, row: RCPOJP, width_xs: 1}
+      name: image_1
+      properties: {height: 41, horizontal_align: right, source: _/theme/lupa.png}
+      type: Image
+    - data_bindings: []
+      event_bindings: {change: finder_input_change, focus: finder_input_focus}
+      layout_properties: {col_xs: 1, row: RCPOJP, width_xs: 8}
+      name: finder_input
+      properties: {background: 'theme:On Primary', hide_text: false, role: outlined, text: Búsqueda}
+      type: TextBox
+    - event_bindings: {click: filters_button_click}
+      layout_properties: {col_xs: 9, row: RCPOJP, width_xs: 3}
+      name: filters_button
+      properties: {background: 'theme:Outline', role: full-width-button, text: Filtros}
+      type: Button
+    - layout_properties: {col_xs: 1, row: MTGWQC, width_xs: 4}
+      name: init_date_picker
+      properties: {visible: false}
+      type: DatePicker
+    - layout_properties: {col_xs: 5, row: MTGWQC, width_xs: 4}
+      name: end_date_picker
+      properties: {visible: false}
+      type: DatePicker
+    - event_bindings: {click: apply_filters_click}
+      layout_properties: {col_xs: 9, row: MTGWQC, width_xs: 3}
+      name: apply_filters
+      properties: {background: 'theme:Outline', role: full-width-button, text: Aplicar, visible: false}
+      type: Button
+    - event_bindings: {click: createReportButton_click}
+      layout_properties: {col_xs: 0, row: DTMKGE, width_xs: 12}
+      name: createReportButton
+      properties:
+        background: theme:nice_button_blue
+        foreground: theme:On Primary
+        role: full-width-button
+        spacing:
+          padding: [null, 133, null, 122]
+        text: Crear informe
+      type: Button
+    - data_bindings: []
+      layout_properties: {col_xs: 0, row: VIGDCG, width_xs: 12}
+      name: reportsPanel
+      properties: {item_template: Appointments.AppointmentList}
+      type: RepeatingPanel
+    layout_properties: {}
+    name: grid_panel_1
+    properties: {}
+    type: GridPanel
 is_package: true
 layout:
   form_event_bindings: {show: form_show}
