@@ -47,7 +47,7 @@ components_by_slot:
     - data_bindings: []
       layout_properties: {col_xs: 0, row: VIGDCG, width_xs: 12}
       name: reportsPanel
-      properties: {item_template: Appointments.AppointmentList}
+      properties: {item_template: reports.ReportsList}
       type: RepeatingPanel
     layout_properties: {}
     name: grid_panel_1
