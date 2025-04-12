@@ -14,12 +14,6 @@ class ReportsList(ReportsListTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    if window.innerHeight > window.innerWidth:
-      self.phone_panel.visible = True
-      self.pc_panel.visible = False
-    else:
-      self.phone_panel.visible = False
-      self.pc_panel.visible = True
       
     if self.item:
       # self.lbl_name.text = "ID: " + self.item.get("name", "jeje")
@@ -36,10 +30,3 @@ class ReportsList(ReportsListTemplate):
       pass
 
     # Any code you write here will run before the form opens.
-
-  def edit_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    from ..createAppointment import createAppointment
-
-    popup = createAppointment(self.item)
-    open_form(popup)
