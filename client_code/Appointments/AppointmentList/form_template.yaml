@@ -37,20 +37,41 @@ components:
       properties: {auto_expand: true, enabled: false, font_size: 14, height: 90, text: 'Medicamentos: '}
       type: TextArea
     - components:
-      - data_bindings: []
-        event_bindings: {click: edit_button_click}
-        layout_properties: {}
-        name: edit_button
-        properties: {background: 'theme:nice_button_blue', foreground: 'theme:On Primary', icon: 'fa:edit', role: full-width-button, text: ''}
-        type: Button
-      - layout_properties: {}
-        name: delete_button
-        properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:trash', role: full-width-button, text: ''}
-        type: Button
-      layout_properties: {expand: false, width: 74}
-      name: linear_panel_1
+      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
+        name: spacer_1
+        properties: {height: 15}
+        type: Spacer
+      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+        name: image_2
+        properties: {height: 24, source: _/theme/eye.svg}
+        type: Image
+      name: view_button
       properties: {}
-      type: LinearPanel
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
+        name: spacer_1_copy_2
+        properties: {height: 15}
+        type: Spacer
+      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+        name: image_2_copy
+        properties: {height: 24, source: _/theme/pencil (1).svg}
+        type: Image
+      name: edit_button
+      properties: {}
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
+        name: spacer_1_copy_3
+        properties: {height: 13}
+        type: Spacer
+      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+        name: image_2_copy_2
+        properties: {height: 24, source: _/theme/trash-2.svg}
+        type: Image
+      name: delete_button
+      properties: {}
+      type: Link
     layout_properties: {full_width_row: true, grid_position: 'DIJZGY,ONGZAF'}
     name: flow_panel_1
     properties: {}

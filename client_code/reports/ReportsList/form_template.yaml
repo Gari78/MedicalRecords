@@ -2,7 +2,7 @@ components:
 - components:
   - components:
     - layout_properties: {}
-      name: rich_text_1
+      name: interval_dates
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
@@ -13,11 +13,11 @@ components:
         format: restricted_html
       type: RichText
     - layout_properties: {width: 22.718759326171874}
-      name: image_1
+      name: total_icon
       properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/total.svg}
       type: Image
     - layout_properties: {}
-      name: rich_text_1_copy
+      name: total_text
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
@@ -28,12 +28,12 @@ components:
         format: restricted_html
       type: RichText
     - layout_properties: {width: 24.715971191406254}
-      name: image_1_copy
+      name: normal_icon
       properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/normal.svg}
       type: Image
     - components: []
       layout_properties: {}
-      name: rich_text_1_copy_copy
+      name: normal_text
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
@@ -44,12 +44,12 @@ components:
         format: restricted_html
       type: RichText
     - layout_properties: {width: 22.07108984375}
-      name: image_1_copy_copy
+      name: telematic_icon
       properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/telematic.svg}
       type: Image
     - components: []
       layout_properties: {}
-      name: rich_text_1_copy_copy_copy
+      name: telematic_text
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
@@ -60,12 +60,12 @@ components:
         format: restricted_html
       type: RichText
     - layout_properties: {width: 28.079618652343754}
-      name: image_1_copy_copy_copy
+      name: urgent_icon
       properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/urgent.svg}
       type: Image
     - components: []
       layout_properties: {}
-      name: rich_text_1_copy_copy_copy_copy
+      name: urgent_text
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
@@ -76,11 +76,11 @@ components:
         format: restricted_html
       type: RichText
     - layout_properties: {width: 27.625089843750004}
-      name: image_1_copy_copy_copy_copy
+      name: private_icon
       properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/private.svg}
       type: Image
     - layout_properties: {}
-      name: rich_text_1_copy_copy_copy_copy_copy
+      name: private_text
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; border-right: 1px solid #e5e7eb; width: 8rem;">
@@ -91,7 +91,7 @@ components:
         format: restricted_html
       type: RichText
     - layout_properties: {}
-      name: rich_text_1_copy_copy_copy_copy_copy_2
+      name: income_text
       properties:
         content: |2-
            <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
@@ -101,42 +101,42 @@ components:
               </div>
         format: restricted_html
       type: RichText
-    - components: []
-      name: linear_panel_1
-      properties: {}
-      type: LinearPanel
     - components:
-      - layout_properties: {grid_position: 'GZYNOX,ZXEQPC'}
-        name: spacer_1_copy_copy
-        properties: {height: 5.5999908447265625}
+      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
+        name: spacer_1
+        properties: {height: 11}
         type: Spacer
-      - layout_properties: {grid_position: 'DGZKPU,UHRASO'}
-        name: delete_button_copy
-        properties: {background: 'theme:nice_button_blue', font_size: 12, foreground: 'theme:On Primary', icon: 'fa:eye', role: full-width-button, spacing_above: small, text: ''}
-        type: Button
-      - layout_properties: {grid_position: 'LMYDMH,TDQEJY'}
-        name: spacer_2_copy_copy
-        properties: {height: 5.199981689453125}
-        type: Spacer
-      name: column_panel_1_copy_copy
+      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+        name: image_2
+        properties: {height: 24, source: _/theme/eye.svg}
+        type: Image
+      name: view_button
       properties: {}
-      type: ColumnPanel
+      type: Link
     - components:
-      - layout_properties: {grid_position: 'GZYNOX,ZXEQPC'}
-        name: spacer_1_copy
-        properties: {height: 5.5999908447265625}
+      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
+        name: spacer_1_copy_2
+        properties: {height: 11}
         type: Spacer
-      - layout_properties: {grid_position: 'DGZKPU,UHRASO'}
-        name: delete_button
-        properties: {background: 'theme:Error', font_size: 12, foreground: 'theme:On Primary', icon: 'fa:trash', role: full-width-button, spacing_above: small, text: ''}
-        type: Button
-      - layout_properties: {grid_position: 'LMYDMH,TDQEJY'}
-        name: spacer_2_copy
-        properties: {height: 5.199981689453125}
-        type: Spacer
-      name: column_panel_1_copy
+      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+        name: image_2_copy
+        properties: {height: 24, source: _/theme/pencil (1).svg}
+        type: Image
+      name: edit_button
       properties: {}
-      type: ColumnPanel
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
+        name: spacer_1_copy_3
+        properties: {height: 11}
+        type: Spacer
+      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+        name: image_2_copy_2
+        properties: {height: 24, source: _/theme/trash-2.svg}
+        type: Image
+      name: delete_button
+      properties: {}
+      type: Link
     layout_properties: {full_width_row: true, grid_position: 'JDCNXA,HSUYCG'}
     name: flow_panel_2
     properties: {}

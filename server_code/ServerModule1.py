@@ -44,3 +44,19 @@ def create_appointment(data):
 def edit_appointment(data):
   return {"id": 1, "status":200}
 #
+def get_all_reports():
+  return {
+    "content":[
+        {"name": "235769dkj", "notes": "Le dolía el alma", "init_date": "20/02/2025", 
+         "end_date": "19/03/2025", "income": {"gross": 2125, "net": 1875},
+         "patiens":{
+           "total": {"quantity":251, "money":7.4}, 
+           "normal": {"quantity":251, "money":7.4},"telematic": {"quantity":251, "money":7.4},
+           "urgent": {"quantity":251, "money":7.4},"patients": {"quantity":251, "money":7.4}
+         }, 
+        },
+        {"name": "jdj532gds", "notes": "El bombero con dolor de abdominales", "type": "Urgente", "money": "10", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
+        {"name": "jf84jdo20", "notes": "Zanahorio", "type": "Privado", "money": "25", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
+        {"name": "8fdg73hds", "notes": "Gato filósofo", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"}
+    ], "status":200
+  }
