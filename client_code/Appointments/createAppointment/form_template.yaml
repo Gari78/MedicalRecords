@@ -37,7 +37,7 @@ components:
     - event_bindings: {tick: timer_1_tick}
       layout_properties: {grid_position: 'BPSISI,PTCTTV LDTCVH,SCEFWT XHOPIZ,YKCZGZ'}
       name: timer_1
-      properties: {}
+      properties: {interval: 1}
       type: Timer
     - event_bindings: {change: type_dropdown_change}
       layout_properties: {grid_position: 'BPSISI,HXXTVJ LFOUIC,ROJZIE'}
@@ -59,7 +59,56 @@ components:
       properties: {height: 222, text: Medicamentos}
       type: TextArea
     layout_properties: {col_xs: 0, row: CKSNDO, width_xs: 12}
-    name: outlined_card_1
+    name: pc_panel
+    properties: {role: outlined-card}
+    type: ColumnPanel
+  - components:
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV VNWXHB,FOTRGO'}
+      name: image_1_copy
+      properties: {height: 133, source: _/theme/patient.svg}
+      type: Image
+    - event_bindings: {change: type_dropdown_change}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV RIPPIY,NIRNQT'}
+      name: type_dropdown_copy
+      properties: {}
+      type: DropDown
+    - data_bindings: []
+      layout_properties: {grid_position: 'BPSISI,PTCTTV RIPPIY,YLRIDM'}
+      name: lbl_money_copy
+      properties: {align: right, font_size: 16, icon: 'fa:euro', icon_align: right, text: '0'}
+      type: Label
+    - event_bindings: {focus: description_input_focus}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV GEHPSF,BTYUGW'}
+      name: description_input_copy
+      properties: {height: 216, text: Notas}
+      type: TextArea
+    - event_bindings: {focus: meds_input_focus}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV'}
+      name: meds_input_copy
+      properties: {height: 222, text: Medicamentos}
+      type: TextArea
+    - data_bindings: []
+      event_bindings: {focus: id_input_focus}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV HIMJVR,IWBQLS'}
+      name: id_input_copy
+      properties: {text: ID de la cita}
+      type: TextBox
+    - layout_properties: {grid_position: 'BPSISI,PTCTTV JTBEAK,NZTRVI'}
+      name: appointment_timer_copy
+      properties: {align: center, font_size: 16, icon: 'fa:clock-o', icon_align: left, text: '00:00'}
+      type: Label
+    - event_bindings: {click: save_button_click}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV OVNMMZ,PZCEBG'}
+      name: save_button_copy
+      properties: {background: '#8b8af0', foreground: 'theme:On Primary', icon: 'fa:save', role: full-width-button, text: '  Save  '}
+      type: Button
+    - event_bindings: {click: discard_button_click}
+      layout_properties: {grid_position: 'BPSISI,PTCTTV RSRYKA,HSKHDO'}
+      name: discard_button_copy
+      properties: {background: 'theme:Error', foreground: 'theme:On Primary', icon: 'fa:trash', role: full-width-button, text: Discard}
+      type: Button
+    layout_properties: {col_xs: 0, row: XVOBOH, width_xs: 12}
+    name: phone_panel
     properties: {role: outlined-card}
     type: ColumnPanel
   layout_properties: {grid_position: 'WAEEUP,GEJVEC'}

@@ -162,17 +162,15 @@ components:
       format: restricted_html
     type: RichText
   - components:
-    - layout_properties: {width: 35.89488984375}
-      name: total_icon_copy
-      properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/total.svg}
-      type: Image
-    - name: total_text_copy
+    - layout_properties: {}
+      name: total_text_copy
       properties:
+        align: center
         content: |2-
-           <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
-                <div style="font-weight: 700; color: #374151;">Total</div>
-                <div style="text-align: center;">54</div>
-                <div>388.8€</div>
+           <div style="font-size: 0.9.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+                <div style="font-weight: 700; color: #374151;">Pacientes</div>
+                <div style="text-align: center;">número: 54</div>
+                <div>Ingreso: 388.8€</div>
               </div>
         format: restricted_html
       type: RichText
@@ -273,7 +271,7 @@ components:
       - components:
         - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
           name: image_2_copy_3
-          properties: {height: 26.54547119140625, source: _/theme/eye.svg}
+          properties: {height: 26.54547119140625, source: _/theme/download.svg}
           type: Image
         event_bindings: {show: view_button_show}
         name: view_button_copy

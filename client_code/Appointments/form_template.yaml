@@ -1,9 +1,9 @@
 components_by_slot:
   content:
   - components:
-    - layout_properties: {col_xs: 0, row: GDUAYB, width_xs: 3}
+    - layout_properties: {col_xs: 0, row: YHFPTP, width_xs: 12}
       name: TitleLabel
-      properties: {bold: true, font_size: null, italic: false, role: title, text: '', underline: false}
+      properties: {align: center, bold: true, font_size: 30, italic: false, role: title, text: Citas, underline: false}
       type: Label
     - layout_properties: {col_xs: 0, row: RCPOJP, width_xs: 1}
       name: image_1
@@ -20,15 +20,18 @@ components_by_slot:
       name: filters_button
       properties: {background: 'theme:Outline', role: full-width-button, text: Filtros}
       type: Button
-    - layout_properties: {col_xs: 0, row: MTGWQC, width_xs: 3}
+    - event_bindings: {change: init_date_picker_change}
+      layout_properties: {col_xs: 0, row: MTGWQC, width_xs: 3}
       name: init_date_picker
       properties: {visible: false}
       type: DatePicker
-    - layout_properties: {col_xs: 3, row: MTGWQC, width_xs: 3}
+    - event_bindings: {change: end_date_picker_change}
+      layout_properties: {col_xs: 3, row: MTGWQC, width_xs: 3}
       name: end_date_picker
       properties: {visible: false}
       type: DatePicker
-    - layout_properties: {col_xs: 6, row: MTGWQC, width_xs: 3}
+    - event_bindings: {change: type_drop_down_change}
+      layout_properties: {col_xs: 6, row: MTGWQC, width_xs: 3}
       name: type_drop_down
       properties: {visible: false}
       type: DropDown

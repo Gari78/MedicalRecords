@@ -14,6 +14,7 @@ class Appointments(AppointmentsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.apply_filters.enabled = False
     self.data = self.appointments_get_all()
 
     self.AppointmentListPanel.items = self.data
@@ -72,6 +73,20 @@ class Appointments(AppointmentsTemplate):
 
   def appointments_get_all(self):
     return anvil.server.call("get_all_appointments")["content"]
+
+  def init_date_picker_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    if self.end_date_picker.date:
+      self.apply_filters.enabled = True
+
+  def end_date_picker_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    if self.init_date_picker.date:
+      self.apply_filters.enabled = True
+
+  def type_drop_down_change(self, **event_args):
+    """This method is called when an item is selected"""
+    self.apply_filters.enabled = True
     
       
     

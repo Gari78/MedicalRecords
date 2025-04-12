@@ -56,7 +56,7 @@ def get_all_reports():
         "init_date": "20/02/2025",
         "end_date": "19/03/2025",
         "income": {"gross": 2194, "net": 1755.2},
-        "patiens": {
+        "patients": {
           "total": {"quantity": 251, "money": 2194},
           "normal": {"quantity": 110, "money": 814},
           "telematic": {"quantity": 90, "money": 630},
@@ -70,7 +70,7 @@ def get_all_reports():
         "init_date": "20/03/2025",
         "end_date": "19/04/2025",
         "income": {"gross": 2328, "net": 1862.4},
-        "patiens": {
+        "patients": {
           "total": {"quantity": 270, "money": 2328},
           "normal": {"quantity": 120, "money": 888},
           "telematic": {"quantity": 95, "money": 665},
@@ -84,7 +84,7 @@ def get_all_reports():
         "init_date": "20/04/2025",
         "end_date": "19/05/2025",
         "income": {"gross": 2170, "net": 1736.0},
-        "patiens": {
+        "patients": {
           "total": {"quantity": 240, "money": 2170},
           "normal": {"quantity": 100, "money": 740},
           "telematic": {"quantity": 90, "money": 630},
@@ -98,7 +98,7 @@ def get_all_reports():
         "init_date": "20/05/2025",
         "end_date": "19/06/2025",
         "income": {"gross": 2775, "net": 2220},
-        "patiens": {
+        "patients": {
           "total": {"quantity": 295, "money": 2775},
           "normal": {"quantity": 125, "money": 925},
           "telematic": {"quantity": 100, "money": 700},
@@ -112,7 +112,7 @@ def get_all_reports():
         "init_date": "20/06/2025",
         "end_date": "19/07/2025",
         "income": {"gross": 3491, "net": 2792.8},
-        "patiens": {
+        "patients": {
           "total": {"quantity": 310, "money": 3491},
           "normal": {"quantity": 115, "money": 851},
           "telematic": {"quantity": 95, "money": 665},

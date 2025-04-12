@@ -40,12 +40,12 @@ class ReportsList(ReportsListTemplate):
     pass
 
   def fill_pc_content(self):
-    patiens = self.item.get("patiens", {})
-    total_patiens = patiens.get("total", {})
-    normal = patiens.get("normal", {})
-    telematic = patiens.get("telematic", {})
-    urgent = patiens.get("urgent", {})
-    private = patiens.get("private", {})
+    patients = self.item.get("patients", {})
+    total_patients = patients.get("total", {})
+    normal = patients.get("normal", {})
+    telematic = patients.get("telematic", {})
+    urgent = patients.get("urgent", {})
+    private = patients.get("private", {})
     income = self.item.get("income", {})
     self.interval_dates.content = f"""
         <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
@@ -57,8 +57,8 @@ class ReportsList(ReportsListTemplate):
     self.total_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Total</div>
-            <div style="text-align: center;">{total_patiens.get("quantity")}</div>
-            <div>{total_patiens.get("money")}€</div>
+            <div style="text-align: center;">{total_patients.get("quantity")}</div>
+            <div>{total_patients.get("money")}€</div>
           </div>
     """
     self.normal_text.content = f"""
@@ -98,12 +98,12 @@ class ReportsList(ReportsListTemplate):
     """
     
   def fill_phone_content(self):
-    patiens = self.item.get("patiens", {})
-    total_patiens = patiens.get("total", {})
-    normal = patiens.get("normal", {})
-    telematic = patiens.get("telematic", {})
-    urgent = patiens.get("urgent", {})
-    private = patiens.get("private", {})
+    patients = self.item.get("patients", {})
+    total_patients = patients.get("total", {})
+    normal = patients.get("normal", {})
+    telematic = patients.get("telematic", {})
+    urgent = patients.get("urgent", {})
+    private = patients.get("private", {})
     income = self.item.get("income", {})
     self.interval_dates_copy.content = f"""
         <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
@@ -115,8 +115,8 @@ class ReportsList(ReportsListTemplate):
     self.total_text_copy.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Total</div>
-            <div style="text-align: center;">{total_patiens.get("quantity")}</div>
-            <div>{total_patiens.get("money")}€</div>
+            <div style="text-align: center;">{total_patients.get("quantity")}</div>
+            <div>{total_patients.get("money")}€</div>
           </div>
     """
     self.normal_text_copy.content = f"""

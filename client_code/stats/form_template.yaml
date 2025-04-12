@@ -1,5 +1,201 @@
 components_by_slot:
-  content: []
+  content:
+  - components:
+    - components:
+      - layout_properties: {full_width_row: true, grid_position: 'PLQMMD,GERSBU'}
+        name: interval_guide_lbl
+        properties: {role: title, text: Seleccione intervalo, underline: false}
+        type: Label
+      - components:
+        - components:
+          - layout_properties: {full_width_row: true, grid_position: 'WKBKRU,EKJURE'}
+            name: from_lbl
+            properties: {bold: false, font_size: 16, spacing_below: none, text: Desde}
+            type: Label
+          - layout_properties: {full_width_row: true, grid_position: 'TWAMHO,PNOUBL'}
+            name: date_picker_1
+            properties: {background: '', pick_time: true, spacing_above: none}
+            type: DatePicker
+          layout_properties: {expand: true, width: 405.42048095703126}
+          name: column_panel_1
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {full_width_row: true, grid_position: 'KEVPHW,LNQPBS'}
+            name: to_lbl
+            properties: {spacing_below: none, text: Hasta}
+            type: Label
+          - layout_properties: {full_width_row: true, grid_position: 'OIUCIC,BUJDBE'}
+            name: date_picker_2
+            properties: {pick_time: true, spacing_above: none}
+            type: DatePicker
+          layout_properties: {expand: true, width: 410.76333593749996}
+          name: column_panel_2
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'WKEMGG,MQKROE'}
+            name: spacer_1
+            properties: {height: 26.444427490234375}
+            type: Spacer
+          - layout_properties: {grid_position: 'IPAZNY,ZQWWED'}
+            name: button_1
+            properties: {role: full-width-button, text: Actualizar}
+            type: Button
+          name: column_panel_3
+          properties: {}
+          type: ColumnPanel
+        layout_properties: {full_width_row: true, grid_position: 'PLQMMD,GERSBU'}
+        name: flow_panel_1
+        properties: {}
+        type: FlowPanel
+      layout_properties: {full_width_row: true, grid_position: 'GTQIJW,GGEJUT'}
+      name: outlined_card_2
+      properties: {role: outlined-card}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {width: 22.718759326171874}
+          name: total_icon
+          properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/total.svg}
+          type: Image
+        - layout_properties: {expand: true}
+          name: total_text
+          properties:
+            content: |2-
+               <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+                    <div style="font-weight: 700; color: #374151;">Total</div>
+                    <div style="text-align: center;">54</div>
+                    <div>388.8€</div>
+                  </div>
+            format: restricted_html
+          type: RichText
+        - layout_properties: {width: 24.715971191406254}
+          name: normal_icon
+          properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/normal.svg}
+          type: Image
+        - layout_properties: {expand: true}
+          name: normal_text
+          properties:
+            content: |2-
+               <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+                    <div style="font-weight: 700; color: #374151;">Normal</div>
+                    <div style="text-align: center;">54</div>
+                    <div>388.8€</div>
+                  </div>
+            format: restricted_html
+          type: RichText
+        - layout_properties: {width: 22.07108984375}
+          name: telematic_icon
+          properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/telematic.svg}
+          type: Image
+        - layout_properties: {expand: true}
+          name: telematic_text
+          properties:
+            content: |2-
+               <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+                    <div style="font-weight: 700; color: #374151;">Telem</div>
+                    <div style="text-align: center;">54</div>
+                    <div>388.8€</div>
+                  </div>
+            format: restricted_html
+          type: RichText
+        - layout_properties: {width: 28.079618652343754}
+          name: urgent_icon
+          properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/urgent.svg}
+          type: Image
+        - layout_properties: {expand: true}
+          name: urgent_text
+          properties:
+            content: |2-
+               <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+                    <div style="font-weight: 700; color: #374151;">Urgente</div>
+                    <div style="text-align: center;">54</div>
+                    <div>540€</div>
+                  </div>
+            format: restricted_html
+          type: RichText
+        - layout_properties: {width: 27.625089843750004}
+          name: private_icon
+          properties: {height: 70.18182373046875, horizontal_align: right, source: _/theme/private.svg}
+          type: Image
+        - layout_properties: {expand: true}
+          name: private_text
+          properties:
+            content: |2-
+               <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; border-right: 1px solid #e5e7eb; width: 8rem;">
+                    <div style="font-weight: 700; color: #374151;">Privado</div>
+                    <div style="text-align: center;">54</div>
+                    <div>540€</div>
+                  </div>
+            format: restricted_html
+          type: RichText
+        - layout_properties: {expand: false}
+          name: income_text
+          properties:
+            content: |2-
+               <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+                    <div style="font-weight: 700; color: #374151;">Ingresos</div>
+                    <div style="text-align: center;">Brutos: 1240€</div>
+                    <div>Netos: 954€</div>
+                  </div>
+            format: restricted_html
+          type: RichText
+        layout_properties: {full_width_row: true, grid_position: 'JDCNXA,HSUYCG'}
+        name: flow_panel_2
+        properties: {}
+        type: FlowPanel
+      layout_properties: {full_width_row: true, grid_position: 'HXQUHB,SGMPRM'}
+      name: pc_panel
+      properties: {role: outlined-card}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {full_width_row: true, grid_position: 'COSFAU,WYPEIJ'}
+        name: patients_per_type_lbl
+        properties: {align: center, font_size: 18, text: Porcentaje de pacientes por tipo}
+        type: Label
+      - layout_properties: {full_width_row: true, grid_position: 'ASBRQB,UNPAIG'}
+        name: patients_per_type_plot
+        properties: {height: 315.111083984375}
+        type: Plot
+      layout_properties: {full_width_row: true, grid_position: 'ZVELNI,UQTNFA OJJJMY,HSYXDT'}
+      name: patients_per_type_card
+      properties: {role: outlined-card}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {full_width_row: true, grid_position: 'XNYPUM,PDHPFL'}
+        name: income_per_type_lbl
+        properties: {align: center, bold: false, font_size: 18, text: Porcentaje de ingresos por tipo de paciente}
+        type: Label
+      - layout_properties: {full_width_row: true, grid_position: 'TKEPFK,GUZPKH'}
+        name: income_per_type_plot
+        properties: {height: 315.111083984375}
+        type: Plot
+      layout_properties: {full_width_row: true, grid_position: 'ZVELNI,GJKWUQ'}
+      name: income_per_type_card
+      properties: {role: outlined-card}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {full_width_row: true, grid_position: 'VFSWSI,HTEQTU'}
+        name: income_plot_lbl
+        properties: {align: center, font_size: 18, spacing_below: none, text: Ingresos diarios y acumulados}
+        type: Label
+      - layout_properties: {grid_position: 'XPBOGN,ZHUOCN'}
+        name: phone_recom_lbl
+        properties: {align: center, font_size: 12, foreground: 'theme:Outline', italic: true, spacing_above: none, text: 'Para una mejor experiencia en móviles, gire su dispositivo y visualice la gráfica en modo horizontal', visible: false}
+        type: Label
+      - layout_properties: {full_width_row: true, grid_position: 'JFNBJB,AYQIOO'}
+        name: income_plot
+        properties: {height: 372}
+        type: Plot
+      layout_properties: {full_width_row: true, grid_position: 'SODGJM,DIQSLG'}
+      name: income_plot_card
+      properties: {role: outlined-card}
+      type: ColumnPanel
+    layout_properties: {}
+    name: outlined_card_1
+    properties: {background: 'theme:Surface Variant', role: null}
+    type: ColumnPanel
 is_package: true
 layout:
   form_event_bindings: {show: form_show}
