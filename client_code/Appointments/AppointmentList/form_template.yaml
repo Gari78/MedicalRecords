@@ -1,9 +1,9 @@
 components:
 - components:
   - components:
-    - layout_properties: {expand: false}
+    - layout_properties: {expand: false, width: 57.63358305664063}
       name: image_1
-      properties: {height: 73, source: _/theme/doctor.png}
+      properties: {background: '', height: 73, source: _/theme/patient_blue.svg}
       type: Image
     - components:
       - data_bindings:
@@ -38,18 +38,6 @@ components:
       type: TextArea
     - components:
       - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
-        name: spacer_1
-        properties: {height: 15}
-        type: Spacer
-      - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
-        name: image_2
-        properties: {height: 24, source: _/theme/eye.svg}
-        type: Image
-      name: view_button
-      properties: {}
-      type: Link
-    - components:
-      - layout_properties: {grid_position: 'VWFCTV,UBBBNA'}
         name: spacer_1_copy_2
         properties: {height: 15}
         type: Spacer
@@ -57,6 +45,7 @@ components:
         name: image_2_copy
         properties: {height: 24, source: _/theme/pencil (1).svg}
         type: Image
+      event_bindings: {click: edit_button_click}
       name: edit_button
       properties: {}
       type: Link
@@ -69,6 +58,7 @@ components:
         name: image_2_copy_2
         properties: {height: 24, source: _/theme/trash-2.svg}
         type: Image
+      event_bindings: {click: delete_button_click}
       name: delete_button
       properties: {}
       type: Link
@@ -77,8 +67,74 @@ components:
     properties: {}
     type: FlowPanel
   layout_properties: {full_width_row: true, grid_position: 'TCOTAV,KRLRNZ'}
-  name: outlined_card_1
+  name: pc_panel
   properties: {role: outlined-card}
   type: ColumnPanel
-container: {type: ColumnPanel}
+- components:
+  - components:
+    - name: image_1_copy
+      properties: {background: '', height: 73, source: _/theme/patient_blue.svg}
+      type: Image
+    - components:
+      - data_bindings:
+        - {code: 'self.item[''nombre'']', property: text, writeback: false}
+        layout_properties: {grid_position: 'JGUJJK,YFZZBE JYUPQC,RQFGFD'}
+        name: lbl_name_copy
+        properties: {align: center, role: null}
+        type: Label
+      - layout_properties: {grid_position: 'JGUJJK,YFZZBE URRXKK,HMTKLN'}
+        name: lbl_date_copy
+        properties: {align: center, icon: '', icon_align: right, text: ''}
+        type: Label
+      - layout_properties: {grid_position: 'JGUJJK,HXDELZ IYNCUH,SDZPVO'}
+        name: lbl_type_copy
+        properties: {align: left, text: ''}
+        type: Label
+      - layout_properties: {grid_position: 'JGUJJK,HXDELZ AGALPJ,FSZRHR'}
+        name: lbl_timelapse_copy
+        properties: {align: left, icon: 'fa:clock-o', text: '00:00'}
+        type: Label
+      layout_properties: {expand: true}
+      name: outlined_card_1
+      properties: {role: null, wrap_on: never}
+      type: ColumnPanel
+    layout_properties: {full_width_row: true, grid_position: 'DIJZGY,ONGZAF'}
+    name: flow_panel_1_copy
+    properties: {}
+    type: FlowPanel
+  - layout_properties: {grid_position: 'FPRTOV,IOJDGO'}
+    name: lbl_description_copy
+    properties: {auto_expand: true, enabled: false, font_size: 14, height: 89, text: 'Notas: '}
+    type: TextArea
+  - layout_properties: {grid_position: 'JVUUND,ZYENGO'}
+    name: lbl_meds_copy
+    properties: {auto_expand: true, enabled: false, font_size: 14, height: 90, text: 'Medicamentos: '}
+    type: TextArea
+  - components:
+    - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+      name: image_2_copy_2_copy
+      properties: {height: 24, source: _/theme/trash-2.svg}
+      type: Image
+    event_bindings: {click: delete_button_click}
+    layout_properties: {grid_position: 'NWEQAV,NEPEZQ'}
+    name: delete_button_copy
+    properties: {}
+    type: Link
+  - components:
+    - layout_properties: {grid_position: 'YRUHMN,DOPCPH'}
+      name: image_2_copy_copy
+      properties: {height: 24, source: _/theme/pencil (1).svg}
+      type: Image
+    event_bindings: {click: edit_button_click}
+    layout_properties: {grid_position: 'NWEQAV,VNTLEJ'}
+    name: edit_button_copy
+    properties: {}
+    type: Link
+  layout_properties: {grid_position: 'NCRABI,OHIETV'}
+  name: phone_panel
+  properties: {role: outlined-card, visible: false}
+  type: ColumnPanel
+container:
+  properties: {wrap_on: never}
+  type: ColumnPanel
 is_package: true

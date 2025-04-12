@@ -38,25 +38,87 @@ def get_all_appointments():
       ], "status": 201
     }
 
+@anvil.server.callable
 def create_appointment(data):
   return {"id": 1, "status":200}
 
+@anvil.server.callable
 def edit_appointment(data):
   return {"id": 1, "status":200}
-#
+
+@anvil.server.callable
 def get_all_reports():
   return {
     "content":[
-        {"name": "235769dkj", "notes": "Le dolía el alma", "init_date": "20/02/2025", 
-         "end_date": "19/03/2025", "income": {"gross": 2125, "net": 1875},
-         "patiens":{
-           "total": {"quantity":251, "money":7.4}, 
-           "normal": {"quantity":251, "money":7.4},"telematic": {"quantity":251, "money":7.4},
-           "urgent": {"quantity":251, "money":7.4},"patients": {"quantity":251, "money":7.4}
-         }, 
-        },
-        {"name": "jdj532gds", "notes": "El bombero con dolor de abdominales", "type": "Urgente", "money": "10", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "jf84jdo20", "notes": "Zanahorio", "type": "Privado", "money": "25", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "8fdg73hds", "notes": "Gato filósofo", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"}
+      {
+        "name": "Febrero",
+        "notes": "vaya hartura de trabajar",
+        "init_date": "20/02/2025",
+        "end_date": "19/03/2025",
+        "income": {"gross": 2194, "net": 1755.2},
+        "patiens": {
+          "total": {"quantity": 251, "money": 2194},
+          "normal": {"quantity": 110, "money": 814},
+          "telematic": {"quantity": 90, "money": 630},
+          "urgent": {"quantity": 35, "money": 350},
+          "private": {"quantity": 16, "money": 400}
+        }
+      },
+      {
+        "name": "Marzo",
+        "notes": "mes tranquilo pero constante",
+        "init_date": "20/03/2025",
+        "end_date": "19/04/2025",
+        "income": {"gross": 2328, "net": 1862.4},
+        "patiens": {
+          "total": {"quantity": 270, "money": 2328},
+          "normal": {"quantity": 120, "money": 888},
+          "telematic": {"quantity": 95, "money": 665},
+          "urgent": {"quantity": 40, "money": 400},
+          "private": {"quantity": 15, "money": 375}
+        }
+      },
+      {
+        "name": "Abril",
+        "notes": "menos pacientes por Semana Santa",
+        "init_date": "20/04/2025",
+        "end_date": "19/05/2025",
+        "income": {"gross": 2170, "net": 1736.0},
+        "patiens": {
+          "total": {"quantity": 240, "money": 2170},
+          "normal": {"quantity": 100, "money": 740},
+          "telematic": {"quantity": 90, "money": 630},
+          "urgent": {"quantity": 30, "money": 300},
+          "private": {"quantity": 20, "money": 500}
+        }
+      },
+      {
+        "name": "Mayo",
+        "notes": "repunte de actividad",
+        "init_date": "20/05/2025",
+        "end_date": "19/06/2025",
+        "income": {"gross": 2775, "net": 2220},
+        "patiens": {
+          "total": {"quantity": 295, "money": 2775},
+          "normal": {"quantity": 125, "money": 925},
+          "telematic": {"quantity": 100, "money": 700},
+          "urgent": {"quantity": 40, "money": 400},
+          "private": {"quantity": 30, "money": 750}
+        }
+      },
+      {
+        "name": "Junio",
+        "notes": "calorcito y muchas consultas privadas",
+        "init_date": "20/06/2025",
+        "end_date": "19/07/2025",
+        "income": {"gross": 3491, "net": 2792.8},
+        "patiens": {
+          "total": {"quantity": 310, "money": 3491},
+          "normal": {"quantity": 115, "money": 851},
+          "telematic": {"quantity": 95, "money": 665},
+          "urgent": {"quantity": 35, "money": 350},
+          "private": {"quantity": 65, "money": 1625}
+        }
+      }
     ], "status":200
   }

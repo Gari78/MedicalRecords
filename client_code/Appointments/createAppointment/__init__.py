@@ -23,14 +23,16 @@ class createAppointment(createAppointmentTemplate):
     self.startTime = int(time.time())
 
     self.cita = cita  # Guardamos la cita por si es una edición
+    print(cita)
 
     if self.cita:
       # Rellenar los campos con los datos existentes
-      self.id_input.text = str(cita.get('nombre', ''))
-      self.description_input.text = cita.get('descripcion', '')
+      self.create_form_title.text = "Editar cita"
+      self.id_input.text = str(cita.get('name', ''))
+      self.description_input.text = cita.get('notes', '')
       self.meds_input.text = cita.get('medicamentos', '')
-      self.type_dropdown.selected_value = cita.get('tipo', 'Normal')
-      
+      self.type_dropdown.selected_value = cita.get('type', 'Normal')
+      self.meds_input.text = cita.get('meds', 'Therearenomeds')      
       self.lbl_money.text = str(self.find_money())
 
   def save_button_click(self, **event_args):

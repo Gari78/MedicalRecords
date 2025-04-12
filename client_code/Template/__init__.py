@@ -28,14 +28,9 @@ class Template(TemplateTemplate):
     open_form('reports')
 
   def reset_links(self, **event_args):
-    self.homeLink.role = ''
     self.statisticsLink.role = ''
     self.appointmentsLink.role = ''
     self.reportsLink.role = ''
-
-  def link_1_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('Home')
 
   def dutyLink_click(self, **event_args):
     """This method is called when the link is clicked"""
