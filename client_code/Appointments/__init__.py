@@ -16,6 +16,7 @@ class Appointments(AppointmentsTemplate):
     self.init_components(**properties)
     self.apply_filters.enabled = False
     self.data = self.appointments_get_all()
+    self.type_drop_down.items = [type["name"] for type in self.appointment_types_get_all()]
 
     self.AppointmentListPanel.items = self.data
 
@@ -73,6 +74,9 @@ class Appointments(AppointmentsTemplate):
 
   def appointments_get_all(self):
     return anvil.server.call("get_all_appointments")["content"]
+
+  def appointment_types_get_all(self):
+    return anvil.server.call("get_all_appointment_types")["content"]
 
   def init_date_picker_change(self, **event_args):
     """This method is called when the selected date changes"""

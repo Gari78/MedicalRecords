@@ -33,8 +33,22 @@ def login(email,password):
     return({"status":e.status, "content":str(e)})
   
 @anvil.server.callable
-def get_all_types():
-  return {"content": [{"name": "Normal", "money": 7.4}, {"name": "Telemático", "money":7},{"name": "Urgente", "money":10},{"name": "Privado", "money":25}], "status": 200}
+def get_all_appointment_types():
+    try:
+      res = anvil.http.request(
+          url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value",
+          method="GET",
+          json=True
+      )
+      res = {"status": 200, "content": res}
+      print(res)
+      return res
+    
+    except anvil.http.HttpError as e:
+      print("Status code:", e.status)
+      print("Cuerpo del error:", e)
+      return({"status":e.status, "content":str(e)})
+      #return {"content": [{"name": "Normal", "money": 7.4}, {"name": "Telemático", "money":7},{"name": "Urgente", "money":10},{"name": "Privado", "money":25}], "status": 200}
   
 @anvil.server.callable
 def get_all_appointments():
@@ -53,27 +67,24 @@ def get_all_appointments():
       print("Cuerpo del error:", e)
       return({"status":e.status, "content":str(e)})
   
-    return {
-        "content":[
-        {"name": "235769dkj", "notes": "Le dolía el alma", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "jdj532gds", "notes": "El bombero con dolor de abdominales", "type": "Urgente", "money": "10", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "jf84jdo20", "notes": "Zanahorio", "type": "Privado", "money": "25", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "8fdg73hds", "notes": "Gato filósofo", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "4jfk93kdl", "notes": "Un pez llamado Juan", "type": "Privado", "money": "25", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "0djh392fk", "notes": "La montaña de los sueños", "type": "Urgente", "money": "10", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "9gdh28sjk", "notes": "Mago sin varita", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "kl39dkf02", "notes": "Camino de caramelos", "type": "Privado", "money": "25", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "p2jfk38d9", "notes": "El hombre que hablaba con sombras", "type": "Urgente", "money": "10", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "z8fk392ld", "notes": "Biblioteca encantada", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "xj29fk30s", "notes": "Dragón dormilón", "type": "Privado", "money": "25", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "m3ldk49jf", "notes": "Pirata sin barco", "type": "Urgente", "money": "10", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},
-        {"name": "h4dk39sla", "notes": "Los zapatos del destino", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"}
-      ], "status": 201
-    }
-
 @anvil.server.callable
-def create_appointment(data):
-  return {"id": 1, "status":200}
+def create_appointment(appt):
+  print(appt)
+  try:
+    res = anvil.http.request(
+        url="http://46.24.211.201:5000/api/v1/appointments/",
+        method="POST",
+        data=appt,
+        json=True
+    )
+    res = {"status": 201, "content": res}
+    print(res)
+    return res
+  
+  except anvil.http.HttpError as e:
+    print("Status code:", e.status)
+    print("Cuerpo del error:", e)
+    return({"status":e.status, "content":str(e)})
 
 @anvil.server.callable
 def edit_appointment(data):
