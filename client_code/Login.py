@@ -43,7 +43,6 @@ class Login(LoginTemplate):
     open_form('stats')
 
   def login_keycloak(self, email, pwd):
-    if email == "alfonso.garijo@soologic.com" and pwd == "aerosmith":
-      return {"status": 200}
-    else:
-      return {"status": 401}
+    res = anvil.server.call("login")
+    print(res)
+    return res

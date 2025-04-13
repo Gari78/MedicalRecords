@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import anvil.http
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -13,6 +14,16 @@ import anvil.server
 # them with @anvil.server.callable.
 # Here is an example - you can replace it with your own:
 #
+@anvil.server.callable
+def login():
+  res = anvil.http.request(
+        url="http://46.24.211.201:5000/api/v1/login/",
+        method="POST",
+        data={"email": "alfonsogarijo@hotmail.com", "password": "aerosmith"},
+        json=True
+    )
+  return res
+  
 @anvil.server.callable
 def get_all_types():
   return {"content": [{"name": "Normal", "money": 7.4}, {"name": "Telemático", "money":7},{"name": "Urgente", "money":10},{"name": "Privado", "money":25}], "status": 200}
