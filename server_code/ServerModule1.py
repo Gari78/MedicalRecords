@@ -42,11 +42,9 @@ def get_all_appointments():
       res = anvil.http.request(
           url="http://46.24.211.201:5000/api/v1/appointments/",
           method="GET",
-          json=True,
-          fetch=True,
-          with_credentials=True
+          json=True
       )
-      res["status"] = 200
+      res = {"status": 200, "content": res}
       print(res)
       return res
     
