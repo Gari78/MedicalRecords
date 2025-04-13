@@ -15,14 +15,22 @@ import anvil.http
 # Here is an example - you can replace it with your own:
 #
 @anvil.server.callable
-def login():
-  res = anvil.http.request(
+def login(email,password):
+  try:
+    body_auth = {"email": email, "password": password}
+    res = anvil.http.request(
         url="http://46.24.211.201:5000/api/v1/login/",
         method="POST",
-        data={"email": "alfonsogarijo@hotmail.com", "password": "aerosmith"},
+        data=body_auth,
         json=True
     )
-  return res
+    res["status"] = 200
+    return res
+  
+  except anvil.http.HttpError as e:
+    print("Status code:", e.status)
+    print("Cuerpo del error:", e)
+    return({"status":e.status, "content":str(e)})
   
 @anvil.server.callable
 def get_all_types():
@@ -30,7 +38,23 @@ def get_all_types():
   
 @anvil.server.callable
 def get_all_appointments():
-    print("oleoleole!!!")
+    try:
+      res = anvil.http.request(
+          url="http://46.24.211.201:5000/api/v1/appointments/",
+          method="GET",
+          json=True,
+          fetch=True,
+          with_credentials=True
+      )
+      res["status"] = 200
+      print(res)
+      return res
+    
+    except anvil.http.HttpError as e:
+      print("Status code:", e.status)
+      print("Cuerpo del error:", e)
+      return({"status":e.status, "content":str(e)})
+  
     return {
         "content":[
         {"name": "235769dkj", "notes": "Le dolía el alma", "type": "Normal", "money": "7,4", "date":"01-01-2025", "timelapse": "420", "meds": "Therearenomeds"},

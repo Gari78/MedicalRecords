@@ -25,12 +25,11 @@ class Login(LoginTemplate):
       self.xy_panel_column.height = window.innerHeight * 0.85
 
   def login_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    res = self.login_keycloak(email = self.mail_input.text, pwd = self.pwd_input.text)
+    res = anvil.server.call("login",self.mail_input.text,self.pwd_input.text)
     if res["status"] == 200:
       open_form('stats')
     else:
-      alert("El usuario o contraseña introducidos no son correctos", title="Error Autenticación", large=True, buttons=[("OK", None)])
+      alert(f"error {res['content']}", title="Error Autenticación", large=True, buttons=[("OK", None)])
 
   def mail_input_focus(self, **event_args):
     self.mail_input.text = "" if "Correo Elec" in self.mail_input.text else self.mail_input.text
@@ -41,8 +40,3 @@ class Login(LoginTemplate):
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('stats')
-
-  def login_keycloak(self, email, pwd):
-    res = anvil.server.call("login")
-    print(res)
-    return res

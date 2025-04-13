@@ -56,7 +56,7 @@ components:
       name: linear_panel_1
       properties: {}
       type: LinearPanel
-    layout_properties: {width: 262.2048645019531, x: 76.05902852118015, y: 0}
+    layout_properties: {width: 262.2048645019531, x: 574.9826659113169, y: 0}
     name: xy_panel_column
     properties: {background: 'theme:Login Overlay 1', height: 582, spacing_above: none, spacing_below: none}
     type: XYPanel
