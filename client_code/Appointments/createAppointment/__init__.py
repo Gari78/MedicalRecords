@@ -24,6 +24,7 @@ class createAppointment(createAppointmentTemplate):
     self.lbl_money.text = str(self.find_money())
     self.startTime = datetime.now()
     self.cita = cita
+    print(cita)
 
     if window.innerHeight > window.innerWidth:
       self.phone_panel.visible = True
@@ -65,14 +66,14 @@ class createAppointment(createAppointmentTemplate):
     return anvil.server.call("get_all_appointment_types")["content"]
   
   def timer_1_tick(self, **event_args):
-    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    elapsed_time = datetime.now() - self.startTime  # Tiempo transcurrido en segundos
-    elapsed_minutes = elapsed_time.seconds // 60  # Obtiene los minutos
-    elapsed_seconds = elapsed_time.seconds % 60   # Obtiene los segundos restantes
-    
-    # Formatea MM:SS con ceros a la izquierda
-    self.appointment_timer.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
-    self.appointment_timer_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
+    if not self.cita:
+      elapsed_time = datetime.now() - self.startTime  # Tiempo transcurrido en segundos
+      elapsed_minutes = elapsed_time.seconds // 60  # Obtiene los minutos
+      elapsed_seconds = elapsed_time.seconds % 60   # Obtiene los segundos restantes
+      
+      # Formatea MM:SS con ceros a la izquierda
+      self.appointment_timer.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
+      self.appointment_timer_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
 
   def id_input_focus(self, **event_args):
     """This method is called when the TextBox gets focus"""
@@ -101,9 +102,9 @@ class createAppointment(createAppointmentTemplate):
       self.create_form_title.text = "Editar cita"
       self.id_input.text = self.cita.get("idPrv", "jeje")
       self.description_input.text = self.cita.get("comment", "miau")
-      self.type_dropdown.selected_value = str(self.cita.get('type', 'miau'))
+      self.type_dropdown.selected_value = f"{self.cita.get('type', 'miau').get('name', '')}"
       self.meds_input.text = self.cita.get('meds', 'Therearenomeds')      
-      self.lbl_money.text = str(self.find_money())
+      self.lbl_money.text = f"{self.cita.get('type', 'miau').get('value',0)}€"
       timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('startDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
@@ -115,9 +116,9 @@ class createAppointment(createAppointmentTemplate):
       self.create_form_title.text = "Editar cita"
       self.id_input_copy.text = self.cita.get("idPrv", "jeje")
       self.description_input_copy.text = self.cita.get("comment", "miau")
-      self.type_dropdown_copy.selected_value = str(self.cita.get('type', 'miau'))
+      self.type_dropdown_copy.selected_value = f"{self.cita.get('type', 'miau').get('name', '')}"
       self.meds_input_copy.text = self.cita.get('meds', 'Therearenomeds')      
-      self.lbl_money_copy.text = str(self.find_money())
+      self.lbl_money_copy.text = f"{self.cita.get('type', 'miau').get('value',0)}€"
       timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('startDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
