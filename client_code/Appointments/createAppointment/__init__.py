@@ -96,29 +96,30 @@ class createAppointment(createAppointmentTemplate):
     print(self.types)
     return [type["id"] for type in self.types if type["name"] == self.type_dropdown.selected_value][0]
 
-  def fill_phone_content(self):
-    if self.cita:
-      # Rellenar los campos con los datos existentes
-      self.create_form_title.text = "Editar cita"
-      self.id_input.text = str(self.cita.get('name', ''))
-      self.description_input.text = self.cita.get('notes', '')
-      self.meds_input.text = self.cita.get('medicamentos', '')
-      self.type_dropdown.selected_value = self.cita.get('type', 'Normal')
-      self.meds_input.text = self.cita.get('meds', 'Therearenomeds')      
-      self.lbl_money.text = str(self.find_money())
-    
-    
   def fill_pc_content(self):
     if self.cita:
-      # Rellenar los campos con los datos existentes
       self.create_form_title.text = "Editar cita"
-      self.id_input_copy.text = str(self.cita.get('name', ''))
-      self.description_input_copy.text = self.cita.get('notes', '')
-      self.meds_input_copy.text = self.cita.get('medicamentos', '')
-      self.type_dropdown_copy.selected_value = self.cita.get('type', 'Normal')
+      self.id_input.text = self.cita.get("idPrv", "jeje")
+      self.description_input.text = self.cita.get("comment", "miau")
+      self.type_dropdown.selected_value = str(self.cita.get('type', 'miau'))
+      self.meds_input.text = self.cita.get('meds', 'Therearenomeds')      
+      self.lbl_money.text = str(self.find_money())
+      timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('startDate', 'miau').replace("Z",""))
+      elapsed_minutes = timelapse.seconds // 60
+      elapsed_seconds = timelapse.seconds % 60 
+      self.appointment_timer.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
+    
+    
+  def fill_phone_content(self):
+    if self.cita:
+      self.create_form_title.text = "Editar cita"
+      self.id_input_copy.text = self.cita.get("idPrv", "jeje")
+      self.description_input_copy.text = self.cita.get("comment", "miau")
+      self.type_dropdown_copy.selected_value = str(self.cita.get('type', 'miau'))
       self.meds_input_copy.text = self.cita.get('meds', 'Therearenomeds')      
       self.lbl_money_copy.text = str(self.find_money())
-
-
-
+      timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('startDate', 'miau').replace("Z",""))
+      elapsed_minutes = timelapse.seconds // 60
+      elapsed_seconds = timelapse.seconds % 60 
+      self.appointment_timer_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
 
