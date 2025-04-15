@@ -35,6 +35,7 @@ class AppointmentList(AppointmentListTemplate):
   def delete_button_click(self, **event_args):
     """This method is called when the link is clicked"""
     deleted = anvil.server.call("delete_appointment", self.item.get("id", 0))
+    open_form('Appointments')
 
   def fill_pc_content(self):
       self.lbl_name.text = "ID: " + self.item.get("idPrv", "jeje")
