@@ -85,10 +85,42 @@ def create_appointment(appt):
     print("Status code:", e.status)
     print("Cuerpo del error:", e)
     return({"status":e.status, "content":str(e)})
-
+  
 @anvil.server.callable
-def edit_appointment(data):
-  return {"id": 1, "status":200}
+def update_appointment(appt,id):
+  print(appt)
+  try:
+    res = anvil.http.request(
+        url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
+        method="PATCH",
+        data=appt,
+        json=True
+    )
+    res = {"status": 200, "content": res}
+    print(res)
+    return res
+  
+  except anvil.http.HttpError as e:
+    print("Status code:", e.status)
+    print("Cuerpo del error:", e)
+    return({"status":e.status, "content":str(e)})
+  
+@anvil.server.callable
+def delete_appointment(id):
+  try:
+    res = anvil.http.request(
+        url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
+        method="DELETE",
+        json=True
+    )
+    res = {"status": 200, "content": res}
+    print(res)
+    return res
+  
+  except anvil.http.HttpError as e:
+    print("Status code:", e.status)
+    print("Cuerpo del error:", e)
+    return({"status":e.status, "content":str(e)})
 
 @anvil.server.callable
 def get_all_reports():

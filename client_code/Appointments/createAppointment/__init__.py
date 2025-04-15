@@ -38,8 +38,13 @@ class createAppointment(createAppointmentTemplate):
 
   def save_button_click(self, **event_args):
     if self.cita:
-      # Llamar al endpoint de editar la información
-      open_form('Appointments')
+      appt = {
+        "idPrv": self.id_input.text,
+        "type": self.find_type_id(),
+        "comment": self.description_input.text,
+        "meds": self.meds_input.text,
+      }
+      updated = anvil.server.call("update_appointment", appt, self.cita.get("id", 0))
     else:
       appt = {
         "doctor": "76bf31f8-538a-4d99-8d45-26f5d39528fb",
@@ -51,8 +56,7 @@ class createAppointment(createAppointmentTemplate):
         "endDate": datetime.now().isoformat()
       }
       created = anvil.server.call("create_appointment", appt)
-      print(created)
-      open_form('Appointments')      
+    open_form('Appointments')      
 
   def discard_button_click(self, **event_args):
     open_form('Appointments')
