@@ -47,7 +47,6 @@ class createAppointment(createAppointmentTemplate):
       updated = anvil.server.call("update_appointment", appt, self.cita.get("id", 0))
     else:
       appt = {
-        "doctor": "76bf31f8-538a-4d99-8d45-26f5d39528fb",
         "idPrv": self.id_input.text,
         "type": self.find_type_id(),
         "comment": self.description_input.text,

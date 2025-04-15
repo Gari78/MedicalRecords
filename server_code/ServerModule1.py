@@ -36,7 +36,7 @@ def login(email,password):
 def get_all_appointment_types():
     try:
       res = anvil.http.request(
-          url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value",
+          url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value&doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb",
           method="GET",
           json=True
       )
@@ -54,7 +54,7 @@ def get_all_appointment_types():
 def get_all_appointments():
     try:
       res = anvil.http.request(
-          url="http://46.24.211.201:5000/api/v1/appointments/",
+          url="http://46.24.211.201:5000/api/v1/appointments/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb",
           method="GET",
           json=True
       )
@@ -69,7 +69,7 @@ def get_all_appointments():
   
 @anvil.server.callable
 def create_appointment(appt):
-  print(appt)
+  appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
         url="http://46.24.211.201:5000/api/v1/appointments/",
@@ -89,6 +89,7 @@ def create_appointment(appt):
 @anvil.server.callable
 def update_appointment(appt,id):
   print(appt)
+  appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
         url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
