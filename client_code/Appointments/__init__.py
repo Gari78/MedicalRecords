@@ -8,6 +8,7 @@ import anvil
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from datetime import datetime, timedelta
 
 
 class Appointments(AppointmentsTemplate):
@@ -16,7 +17,8 @@ class Appointments(AppointmentsTemplate):
     self.init_components(**properties)
     self.apply_filters.enabled = False
     self.data = self.appointments_get_all()
-    self.type_drop_down.items = [type["name"] for type in self.appointment_types_get_all()]
+    self.types = self.appointment_types_get_all()
+    self.type_drop_down.items = ["Todos"] + [type["name"] for type in self.types]
 
     self.AppointmentListPanel.items = self.data
 
@@ -72,7 +74,10 @@ class Appointments(AppointmentsTemplate):
           auxdata.append(item)
     self.AppointmentListPanel.items = auxdata
 
-  def appointments_get_all(self):
+  def appointments_get_all(self, initDate=None, endDate=None):
+    if not endDate:
+      endDate = datetime.now().isoformat()
+      initDate = datetime.now().isoformat()
     return anvil.server.call("get_all_appointments")["content"]
 
   def appointment_types_get_all(self):
