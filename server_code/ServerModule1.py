@@ -36,7 +36,7 @@ def login(email,password):
 def get_all_appointment_types():
     try:
       res = anvil.http.request(
-          url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value&doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb",
+          url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value",
           method="GET",
           json=True
       )

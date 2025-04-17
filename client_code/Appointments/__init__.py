@@ -16,6 +16,9 @@ class Appointments(AppointmentsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.apply_filters.enabled = False
+    self.end_date_picker.date = datetime.now()
+    self.init_date_picker.date = self.end_date_picker.date - timedelta(days=7)
+    print("holis")
     self.data = self.appointments_get_all()
     self.types = self.appointment_types_get_all()
     self.type_drop_down.items = ["Todos"] + [type["name"] for type in self.types]
@@ -74,11 +77,10 @@ class Appointments(AppointmentsTemplate):
           auxdata.append(item)
     self.AppointmentListPanel.items = auxdata
 
-  def appointments_get_all(self, initDate=None, endDate=None):
-    if not endDate:
-      endDate = datetime.now().isoformat()
-      initDate = datetime.now().isoformat()
-    return anvil.server.call("get_all_appointments")["content"]
+  def appointments_get_all(self):
+    endDate = self.end_date_picker.date.isoformat()
+    initDate = self.init_date_picker.date.isoformat()
+    return anvil.server.call("get_all_appointments",initDate,endDate)["content"]
 
   def appointment_types_get_all(self):
     return anvil.server.call("get_all_appointment_types")["content"]

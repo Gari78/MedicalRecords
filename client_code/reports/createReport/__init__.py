@@ -26,10 +26,10 @@ class createReport(createReportTemplate):
 
     if self.cita:
       # Rellenar los campos con los datos existentes
-      self.id_input.text = str(cita.get("nombre", ""))
-      self.description_input.text = cita.get("descripcion", "")
-      self.meds_input.text = cita.get("medicamentos", "")
-      self.type_dropdown.selected_value = cita.get("tipo", "Normal")
+      self.id_input.text = str(cita.get("name", ""))
+      self.description_input.text = cita.get("comment", "")
+      self.meds_input.text = cita.get("meds", "")
+      self.type_dropdown.selected_value = cita.get("type", "Normal")
 
       self.lbl_money.text = str(self.find_money())
 

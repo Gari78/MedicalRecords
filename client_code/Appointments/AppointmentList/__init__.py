@@ -51,8 +51,8 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_timelapse.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
     
   def fill_phone_content(self):
-      self.lbl_name_copy.text = "ID: " + self.item.get("name", "jeje")
-      self.lbl_description_copy.text = "Notas: " + self.item.get("notes", "miau")
+      self.lbl_name_copy.text = "ID: " + self.item.get("idPrv", "jeje")
+      self.lbl_description_copy.text = "Notas: " + self.item.get("comment", "miau")
       self.lbl_meds_copy.text = "Medicamentos: " + self.item.get("meds", "miau")
       self.lbl_type_copy.text = f"{self.item.get('type', 'miau').get('name', '')}: {self.item.get('type', 'miau').get('value',0)}€"
       self.lbl_date_copy.text = f"{self.item.get('date', 'miau')}"
