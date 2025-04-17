@@ -18,13 +18,11 @@ class createAppointment(createAppointmentTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #types = self.getRequest()
-    #print(types)
     self.types = self.appointment_types_get_all()
     self.type_dropdown.items = [type["name"] for type in self.types]
     self.lbl_money.text = str(self.find_money())
     self.startTime = datetime.now()
     self.cita = cita
-    print(cita)
 
     if window.innerHeight > window.innerWidth:
       self.phone_panel.visible = True
@@ -97,7 +95,6 @@ class createAppointment(createAppointmentTemplate):
     return [type["value"] for type in self.types if type["name"] == self.type_dropdown.selected_value][0]
     
   def find_type_id(self):
-    print(self.types)
     return [type["id"] for type in self.types if type["name"] == self.type_dropdown.selected_value][0]
 
   def fill_pc_content(self):

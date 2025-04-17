@@ -41,7 +41,6 @@ def get_all_appointment_types():
           json=True
       )
       res = {"status": 200, "content": res}
-      print(res)
       return res
     
     except anvil.http.HttpError as e:
@@ -59,7 +58,6 @@ def get_all_appointments():
           json=True
       )
       res = {"status": 200, "content": res}
-      print(res)
       return res
     
     except anvil.http.HttpError as e:
@@ -78,7 +76,6 @@ def create_appointment(appt):
         json=True
     )
     res = {"status": 201, "content": res}
-    print(res)
     return res
   
   except anvil.http.HttpError as e:
@@ -88,7 +85,6 @@ def create_appointment(appt):
   
 @anvil.server.callable
 def update_appointment(appt,id):
-  print(appt)
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
@@ -98,7 +94,6 @@ def update_appointment(appt,id):
         json=True
     )
     res = {"status": 200, "content": res}
-    print(res)
     return res
   
   except anvil.http.HttpError as e:
@@ -115,7 +110,6 @@ def delete_appointment(id):
         json=True
     )
     res = {"status": 200, "content": res}
-    print(res)
     return res
   
   except anvil.http.HttpError as e:

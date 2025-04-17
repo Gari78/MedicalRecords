@@ -75,12 +75,10 @@ class reports(reportsTemplate):
 
   def init_date_picker_change(self, **event_args):
     """This method is called when the selected date changes"""
-    print(self.end_date_picker.date)
     if self.end_date_picker.date:
       self.apply_filters.enabled = True
 
   def end_date_picker_change(self, **event_args):
     """This method is called when the selected date changes"""
-    print(self.init_date_picker.date)
     if self.init_date_picker.date:
       self.apply_filters.enabled = True

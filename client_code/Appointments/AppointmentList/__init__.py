@@ -44,7 +44,6 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_type.text = f"{self.item.get('type', 'miau').get('name', '')}: {self.item.get('type', 'miau').get('value',0)}€"
       date = f"{self.item.get('startDate', 'miau')[:-5]}"
       date = date.replace("T","\n")
-      print(date)
       self.lbl_date.text = date
       timelapse = datetime.fromisoformat(self.item.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.item.get('startDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
