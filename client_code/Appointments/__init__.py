@@ -18,7 +18,7 @@ class Appointments(AppointmentsTemplate):
     self.apply_filters.enabled = False
     self.end_date_picker.date = datetime.now()
     self.init_date_picker.date = self.end_date_picker.date - timedelta(days=7)
-    print("holis")
+    
     self.data = self.appointments_get_all()
     self.types = self.appointment_types_get_all()
     self.type_drop_down.items = ["Todos"] + [type["name"] for type in self.types]
@@ -60,9 +60,15 @@ class Appointments(AppointmentsTemplate):
     """This method is called when the button is clicked"""
     if self.apply_filters.text == "Aplicar":
       self.apply_filters.text = "Quitar"
+      
     else:
+      self.end_date_picker.date = datetime.now()
+      self.init_date_picker.date = self.end_date_picker.date - timedelta(days=7)
       self.apply_filters.text = "Aplicar"
-
+      
+    self.data = self.appointments_get_all()
+    self.AppointmentListPanel.items = self.data
+    
   def finder_input_focus(self, **event_args):
     """This method is called when the TextBox gets focus"""
     if "Búsqueda" in self.finder_input.text:
@@ -72,7 +78,7 @@ class Appointments(AppointmentsTemplate):
     auxdata = []
     for item in self.data:
       find = self.finder_input.text.lower()
-      fields = [item['notes'], item['name'], item['type']]
+      fields = [item['comment'], item['meds'], item['type']['name'], item['idPrv']]
       if any(find in field.lower() for field in fields):
           auxdata.append(item)
     self.AppointmentListPanel.items = auxdata
@@ -86,17 +92,20 @@ class Appointments(AppointmentsTemplate):
     return anvil.server.call("get_all_appointment_types")["content"]
 
   def init_date_picker_change(self, **event_args):
-    """This method is called when the selected date changes"""
-    if self.end_date_picker.date:
-      self.apply_filters.enabled = True
+    if self.apply_filters.enabled:
+      self.data = self.appointments_get_all()
+      self.AppointmentListPanel.items = self.data      
+    elif self.end_date_picker.date:
+        self.apply_filters.enabled = True
 
   def end_date_picker_change(self, **event_args):
-    """This method is called when the selected date changes"""
-    if self.init_date_picker.date:
-      self.apply_filters.enabled = True
+    if self.apply_filters.enabled:
+      self.data = self.appointments_get_all()
+      self.AppointmentListPanel.items = self.data      
+    elif self.init_date_picker.date:
+        self.apply_filters.enabled = True
 
   def type_drop_down_change(self, **event_args):
-    """This method is called when an item is selected"""
     self.apply_filters.enabled = True
     
       
