@@ -50,11 +50,13 @@ def get_all_appointment_types():
       #return {"content": [{"name": "Normal", "money": 7.4}, {"name": "Telemático", "money":7},{"name": "Urgente", "money":10},{"name": "Privado", "money":25}], "status": 200}
   
 @anvil.server.callable
-def get_all_appointments(initDate = None, endDate = None):
+def get_all_appointments(initDate = None, endDate = None, type_id = None):
     try:
       urlCall="http://46.24.211.201:5000/api/v1/appointments/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
       if initDate and endDate:
         urlCall = f"{urlCall}&initDate={initDate}&endDate={endDate}"
+      if type_id:
+        urlCall = f"{urlCall}&type={type_id}"
       res = anvil.http.request(
           url=urlCall,
           method="GET",

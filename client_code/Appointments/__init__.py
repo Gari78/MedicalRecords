@@ -19,8 +19,8 @@ class Appointments(AppointmentsTemplate):
     self.end_date_picker.date = datetime.now()
     self.init_date_picker.date = self.end_date_picker.date - timedelta(days=7)
     
-    self.data = self.appointments_get_all()
     self.types = self.appointment_types_get_all()
+    self.data = self.appointments_get_all()
     self.type_drop_down.items = ["Todos"] + [type["name"] for type in self.types]
 
     self.AppointmentListPanel.items = self.data
@@ -64,6 +64,7 @@ class Appointments(AppointmentsTemplate):
     else:
       self.end_date_picker.date = datetime.now()
       self.init_date_picker.date = self.end_date_picker.date - timedelta(days=7)
+      self.type_drop_down.selected_value = "Todos"
       self.apply_filters.text = "Aplicar"
       
     self.data = self.appointments_get_all()
@@ -86,7 +87,11 @@ class Appointments(AppointmentsTemplate):
   def appointments_get_all(self):
     endDate = self.end_date_picker.date.isoformat()
     initDate = self.init_date_picker.date.isoformat()
-    return anvil.server.call("get_all_appointments",initDate,endDate)["content"]
+    print(self.type_drop_down.selected_value)
+    type_id = [item["id"] for item in self.types if item["name"]==self.type_drop_down.selected_value]
+    type_id = type_id[0] if len(type_id)==1 else None
+    
+    return anvil.server.call("get_all_appointments",initDate,endDate,type_id)["content"]
 
   def appointment_types_get_all(self):
     return anvil.server.call("get_all_appointment_types")["content"]
@@ -106,7 +111,11 @@ class Appointments(AppointmentsTemplate):
         self.apply_filters.enabled = True
 
   def type_drop_down_change(self, **event_args):
-    self.apply_filters.enabled = True
+    if self.apply_filters.enabled:
+      self.data = self.appointments_get_all()
+      self.AppointmentListPanel.items = self.data     
+    else:
+      self.apply_filters.enabled = True
     
       
     
