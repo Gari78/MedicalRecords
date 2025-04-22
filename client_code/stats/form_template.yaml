@@ -23,7 +23,7 @@ components_by_slot:
         - components:
           - layout_properties: {full_width_row: true, grid_position: 'KEVPHW,LNQPBS'}
             name: to_lbl
-            properties: {spacing_below: none, text: Hasta}
+            properties: {bold: false, italic: false, spacing_below: none, text: Hasta, underline: false}
             type: Label
           - layout_properties: {full_width_row: true, grid_position: 'OIUCIC,BUJDBE'}
             name: date_picker_2
