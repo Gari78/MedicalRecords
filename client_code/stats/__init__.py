@@ -185,3 +185,7 @@ class stats(statsTemplate):
     self.income_plot.data = [bar_trace, line_trace]
     self.income_plot.layout = layout
 
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
