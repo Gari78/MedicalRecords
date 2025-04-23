@@ -42,10 +42,10 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_description.text = "Notas: " + self.item.get("comment", "miau")
       self.lbl_meds.text = "Medicamentos: " + self.item.get("meds", "miau")
       self.lbl_type.text = f"{self.item.get('type', 'miau').get('name', '')}: {self.item.get('type', 'miau').get('value',0)}€"
-      date = f"{self.item.get('startDate', 'miau')}"
+      date = f"{self.item.get('initDate', 'miau')}"
       date = date.replace("T","\n").replace("Z","")
       self.lbl_date.text = date
-      timelapse = datetime.fromisoformat(self.item.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.item.get('startDate', 'miau').replace("Z",""))
+      timelapse = datetime.fromisoformat(self.item.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.item.get('initDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
       self.lbl_timelapse.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
@@ -56,7 +56,7 @@ class AppointmentList(AppointmentListTemplate):
       self.lbl_meds_copy.text = "Medicamentos: " + self.item.get("meds", "miau")
       self.lbl_type_copy.text = f"{self.item.get('type', 'miau').get('name', '')}: {self.item.get('type', 'miau').get('value',0)}€"
       self.lbl_date_copy.text = f"{self.item.get('date', 'miau')}"
-      timelapse = datetime.fromisoformat(self.item.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.item.get('startDate', 'miau').replace("Z",""))
+      timelapse = datetime.fromisoformat(self.item.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.item.get('initDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
       self.lbl_timelapse_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"

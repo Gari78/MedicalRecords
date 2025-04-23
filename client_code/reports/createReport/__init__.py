@@ -12,36 +12,30 @@ import anvil.http
 
 
 class createReport(createReportTemplate):
-  def __init__(self, cita=None, **properties):
+  def __init__(self, report=None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # types = self.getRequest()
-    # print(types)
-    self.types = anvil.server.call("get_all_types")["content"]
-    self.type_dropdown.items = [type["name"] for type in self.types]
-    self.lbl_money.text = str(self.find_money())
-    self.startTime = int(time.time())
 
-    self.cita = cita  # Guardamos la cita por si es una edición
+    self.report = report  # Guardamos la report por si es una edición
 
-    if self.cita:
+    if self.report:
       # Rellenar los campos con los datos existentes
-      self.id_input.text = str(cita.get("name", ""))
-      self.description_input.text = cita.get("comment", "")
-      self.meds_input.text = cita.get("meds", "")
-      self.type_dropdown.selected_value = cita.get("type", "Normal")
+      self.id_input.text = str(report.get("name", ""))
+      self.description_input.text = report.get("comment", "")
+      self.meds_input.text = report.get("meds", "")
+      self.type_dropdown.selected_value = report.get("type", "Normal")
 
       self.lbl_money.text = str(self.find_money())
 
   def save_button_click(self, **event_args):
-    if self.cita:
+    if self.report:
       # Llamar al endpoint de editar la información
-      open_form("Appointments")
+      open_form("reports")
     else:
-      open_form("Appointments")
+      open_form("reports")
 
   def discard_button_click(self, **event_args):
-    open_form("Appointments")
+    open_form("reports")
 
   def type_dropdown_change(self, **event_args):
     """This method is called when an item is selected"""
@@ -64,7 +58,7 @@ class createReport(createReportTemplate):
 
   def id_input_focus(self, **event_args):
     """This method is called when the TextBox gets focus"""
-    self.id_input.text = "" if "cita" in self.id_input.text else self.id_input.text
+    self.id_input.text = "" if "report" in self.id_input.text else self.id_input.text
 
   def description_input_focus(self, **event_args):
     """This method is called when the text area gets focus"""

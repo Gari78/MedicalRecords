@@ -40,25 +40,25 @@ class ReportsList(ReportsListTemplate):
     pass
 
   def fill_pc_content(self):
-    patients = self.item.get("patients", {})
-    total_patients = patients.get("total", {})
-    normal = patients.get("normal", {})
-    telematic = patients.get("telematic", {})
-    urgent = patients.get("urgent", {})
-    private = patients.get("private", {})
-    income = self.item.get("income", {})
+    insights = {insight["name"]:{"quantity": insight["count"], "money":insight["money"]} for insight in self.item.get("insights", {})}
+    normal = insights.get("Normales", {}) if "Normales" in insights else {"quantity": 0, "money":0}
+    telematic = insights.get("Telematicos", {}) if "Telematicos" in insights else {"quantity": 0, "money":0}
+    urgent = insights.get("Urgentes", {}) if "Urgentes" in insights else {"quantity": 0, "money":0}
+    private = insights.get("Privados", {}) if "Privados" in insights else {"quantity": 0, "money":0}
+    total = {"quantity": normal["quantity"] + telematic["quantity"] + urgent["quantity"] + private["quantity"],
+            "money": normal["money"] + telematic["money"] + urgent["money"] + private["money"]}
     self.interval_dates.content = f"""
         <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
               <div style="font-weight: 700; color: #374151;">Periodo</div>
-              <div>{self.item.get("init_date")}</div>
-              <div>{self.item.get("end_date")}</div>
+              <div>{self.item.get("initdate").split("T")[0]}</div>
+              <div>{self.item.get("enddate").split("T")[0]}</div>
             </div>
       """
     self.total_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Total</div>
-            <div style="text-align: center;">{total_patients.get("quantity")}</div>
-            <div>{total_patients.get("money")}€</div>
+            <div style="text-align: center;">{total.get("quantity")}</div>
+            <div>{total.get("money")}€</div>
           </div>
     """
     self.normal_text.content = f"""
@@ -92,31 +92,31 @@ class ReportsList(ReportsListTemplate):
     self.income_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Ingresos</div>
-            <div style="text-align: center;">Brutos: {income.get("gross")}€</div>
-            <div>Netos: {income.get("net")}€</div>
+            <div style="text-align: center;">Brutos: {self.item.get("grossincome")}€</div>
+            <div>Netos: {self.item.get("netincome")}€</div>
           </div>
     """
     
   def fill_phone_content(self):
-    patients = self.item.get("patients", {})
-    total_patients = patients.get("total", {})
-    normal = patients.get("normal", {})
-    telematic = patients.get("telematic", {})
-    urgent = patients.get("urgent", {})
-    private = patients.get("private", {})
-    income = self.item.get("income", {})
+    insights = {insight["name"]:{"quantity": insight["count"], "money":insight["money"]} for insight in self.item.get("insights", {})}
+    normal = insights.get("Normales", {}) if "Normales" in insights else {"quantity": 0, "money":0}
+    telematic = insights.get("Telematicos", {}) if "Telematicos" in insights else {"quantity": 0, "money":0}
+    urgent = insights.get("Urgentes", {}) if "Urgentes" in insights else {"quantity": 0, "money":0}
+    private = insights.get("Privados", {}) if "Privados" in insights else {"quantity": 0, "money":0}
+    total = {"quantity": normal["quantity"] + telematic["quantity"] + urgent["quantity"] + private["quantity"],
+            "money": normal["money"] + telematic["money"] + urgent["money"] + private["money"]}
     self.interval_dates_copy.content = f"""
         <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
               <div style="font-weight: 700; color: #374151;">Periodo</div>
-              <div>{self.item.get("init_date")}</div>
-              <div>{self.item.get("end_date")}</div>
+              <div>{self.item.get("initdate").split("T")[0]}</div>
+              <div>{self.item.get("enddate").split("T")[0]}</div>
             </div>
       """
     self.total_text_copy.content = f"""
-      <div style="font-size: 1.rem; color: #6b7280; border-right: 1px solid #e5e7eb; padding-right: 0.75rem; width: 8rem;">
+      <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Total</div>
-            <div style="text-align: center;">{total_patients.get("quantity")}</div>
-            <div>{total_patients.get("money")}€</div>
+            <div style="text-align: center;">{total.get("quantity")}</div>
+            <div>{total.get("money")}€</div>
           </div>
     """
     self.normal_text_copy.content = f"""
@@ -141,7 +141,7 @@ class ReportsList(ReportsListTemplate):
           </div>
     """
     self.private_text_copy.content = f"""
-      <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
+      <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem;border-right: 1px solid #e5e7eb; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Privados</div>
             <div style="text-align: center;">{private.get("quantity")}</div>
             <div>{private.get("money")}€</div>
@@ -150,7 +150,7 @@ class ReportsList(ReportsListTemplate):
     self.income_text_copy.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Ingresos</div>
-            <div style="text-align: center;">Brutos: {income.get("gross")}€</div>
-            <div>Netos: {income.get("net")}€</div>
+            <div style="text-align: center;">Brutos: {self.item.get("grossincome")}€</div>
+            <div>Netos: {self.item.get("netincome")}€</div>
           </div>
     """

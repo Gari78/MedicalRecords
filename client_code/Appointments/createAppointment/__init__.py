@@ -49,7 +49,7 @@ class createAppointment(createAppointmentTemplate):
         "type": self.find_type_id(),
         "comment": self.description_input.text,
         "meds": self.meds_input.text,
-        "startDate": self.startTime.isoformat(),
+        "initDate": self.startTime.isoformat(),
         "endDate": datetime.now().isoformat()
       }
       created = anvil.server.call("create_appointment", appt)
@@ -105,7 +105,7 @@ class createAppointment(createAppointmentTemplate):
       self.type_dropdown.selected_value = f"{self.cita.get('type', 'miau').get('name', '')}"
       self.meds_input.text = self.cita.get('meds', 'Therearenomeds')      
       self.lbl_money.text = f"{self.cita.get('type', 'miau').get('value',0)}€"
-      timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('startDate', 'miau').replace("Z",""))
+      timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('initDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
       self.appointment_timer.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
@@ -119,7 +119,7 @@ class createAppointment(createAppointmentTemplate):
       self.type_dropdown_copy.selected_value = f"{self.cita.get('type', 'miau').get('name', '')}"
       self.meds_input_copy.text = self.cita.get('meds', 'Therearenomeds')      
       self.lbl_money_copy.text = f"{self.cita.get('type', 'miau').get('value',0)}€"
-      timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('startDate', 'miau').replace("Z",""))
+      timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('initDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
       self.appointment_timer_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"

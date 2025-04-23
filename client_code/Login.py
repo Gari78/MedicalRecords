@@ -27,7 +27,7 @@ class Login(LoginTemplate):
   def login_button_click(self, **event_args):
     res = anvil.server.call("login",self.mail_input.text,self.pwd_input.text)
     if res["status"] == 200:
-      open_form('stats')
+      open_form('Appointments')
     else:
       alert(f"error {res['content']}", title="Error Autenticación", large=True, buttons=[("OK", None)])
 
@@ -39,4 +39,4 @@ class Login(LoginTemplate):
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('stats')
+    open_form('Appointments')
