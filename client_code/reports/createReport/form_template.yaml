@@ -27,23 +27,23 @@ components:
         type: ColumnPanel
       - components:
         - data_bindings: []
-          event_bindings: {focus: id_input_focus}
+          event_bindings: {focus: name_input_focus}
           layout_properties: {}
-          name: id_input
+          name: name_input
           properties: {text: Nombre del informe}
           type: TextBox
         - layout_properties: {}
           name: spacer_3
           properties: {height: 6}
           type: Spacer
-        - name: date_picker_1
+        - name: init_date_picker
           properties: {}
           type: DatePicker
         - layout_properties: {}
           name: spacer_2
           properties: {height: 8}
           type: Spacer
-        - name: date_picker_1_copy
+        - name: end_date_picker
           properties: {}
           type: DatePicker
         - layout_properties: {}
