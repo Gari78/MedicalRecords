@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import time
 import anvil.http
+from datetime import datetime, timezone
 
 
 class createReport(createReportTemplate):
@@ -17,20 +18,33 @@ class createReport(createReportTemplate):
     self.init_components(**properties)
 
     self.report = report  # Guardamos la report por si es una edición
+    print(f"Report: {report}")
 
     if self.report:
       # Rellenar los campos con los datos existentes
       self.name_input.text = str(report.get("name", ""))
       self.description_input.text = report.get("comment", "")
-      self.init_date_picker.date = report.get("initDate", "")
-      self.end_date_picker.date = report.get("endDate", "")
+      self.init_date_picker.date = datetime.fromisoformat(report.get("initdate", "").replace("Z", "+00:00"))      
+      self.end_date_picker.date = datetime.fromisoformat(report.get("enddate", "").replace("Z", "+00:00")) 
 
   def save_button_click(self, **event_args):
     if self.report:
-      # Llamar al endpoint de editar la información
-      open_form("reports")
+      appt = {
+        "name": self.name_input.text,
+        "comment": self.description_input.text,
+        "initDate": self.init_date_picker.date.isoformat(),
+        "endDate": self.end_date_picker.date.isoformat()
+      }
+      updated = anvil.server.call("update_appointment", appt, self.cita.get("id", 0))
     else:
-      open_form("reports")
+      appt = {
+        "name": self.name_input.text,
+        "comment": self.description_input.text,
+        "initDate": self.init_date_picker.date.isoformat(),
+        "endDate": self.end_date_picker.date.isoformat()
+      }
+      created = anvil.server.call("create_appointment", appt)
+    open_form("reports")
 
   def discard_button_click(self, **event_args):
     open_form("reports")
@@ -43,7 +57,7 @@ class createReport(createReportTemplate):
 
   def name_input_focus(self, **event_args):
     """This method is called when the TextBox gets focus"""
-    self.id_input.text = "" if "report" in self.id_input.text else self.id_input.text
+    self.name_input.text = "" if "report" in self.name_input.text else self.name_input.text
 
   def description_input_focus(self, **event_args):
     """This method is called when the text area gets focus"""

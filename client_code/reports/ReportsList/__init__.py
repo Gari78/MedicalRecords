@@ -32,12 +32,14 @@ class ReportsList(ReportsListTemplate):
     pass
 
   def edit_button_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    from ..createReport import createReport
+    popup = createReport(self.item)
+    open_form(popup)
+    
 
   def delete_button_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    deleted = anvil.server.call("delete_report", self.item.get("id", 0))
+    open_form('Reports')
 
   def fill_pc_content(self):
     insights = {insight["name"]:{"quantity": insight["count"], "money":insight["money"]} for insight in self.item.get("insights", {})}
