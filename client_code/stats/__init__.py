@@ -50,18 +50,18 @@ class stats(statsTemplate):
     self.layout.statisticsLink.role = 'selected'
 
   def fill_pc_content(self):
-    patients = self.summary.get("patients", {})
-    total_patients = patients.get("total", {})
-    normal = patients.get("normal", {})
-    telematic = patients.get("telematic", {})
-    urgent = patients.get("urgent", {})
-    private = patients.get("private", {})
-    income = self.summary.get("income", {})
+    insights = {insight["name"]:{"quantity": insight["count"], "money":insight["money"]} for insight in self.item.get("insights", {})}
+    normal = insights.get("Normales", {}) if "Normales" in insights else {"quantity": 0, "money":0}
+    telematic = insights.get("Telematicos", {}) if "Telematicos" in insights else {"quantity": 0, "money":0}
+    urgent = insights.get("Urgentes", {}) if "Urgentes" in insights else {"quantity": 0, "money":0}
+    private = insights.get("Privados", {}) if "Privados" in insights else {"quantity": 0, "money":0}
+    total = {"quantity": normal["quantity"] + telematic["quantity"] + urgent["quantity"] + private["quantity"],
+            "money": normal["money"] + telematic["money"] + urgent["money"] + private["money"]}
     self.total_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Total</div>
-            <div style="text-align: center;">{total_patients.get("quantity")}</div>
-            <div>{total_patients.get("money")}€</div>
+            <div style="text-align: center;">{total.get("quantity")}</div>
+            <div>{total.get("money")}€</div>
           </div>
     """
     self.normal_text.content = f"""
@@ -95,8 +95,8 @@ class stats(statsTemplate):
     self.income_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Ingresos</div>
-            <div style="text-align: center;">Brutos: {income.get("gross")}€</div>
-            <div>Netos: {income.get("net")}€</div>
+            <div style="text-align: center;">Brutos: {self.item.get("grossincome")}€</div>
+            <div>Netos: {self.item.get("netincome")}€</div>
           </div>
     """
     
