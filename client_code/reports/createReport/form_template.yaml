@@ -36,18 +36,34 @@ components:
           name: spacer_3
           properties: {height: 6}
           type: Spacer
-        - layout_properties: {}
-          name: init_date_picker
-          properties: {pick_time: true}
-          type: DatePicker
+        - components:
+          - layout_properties: {}
+            name: label_1
+            properties: {text: Fecha inicio}
+            type: Label
+          - layout_properties: {width: 217.30848095703124}
+            name: init_date_picker
+            properties: {pick_time: true}
+            type: DatePicker
+          name: flow_panel_2
+          properties: {}
+          type: FlowPanel
         - layout_properties: {}
           name: spacer_2
           properties: {height: 8}
           type: Spacer
-        - layout_properties: {}
-          name: end_date_picker
-          properties: {pick_time: true}
-          type: DatePicker
+        - components:
+          - layout_properties: {}
+            name: label_2
+            properties: {text: 'Fecha fin    '}
+            type: Label
+          - layout_properties: {width: 218.09331298828124}
+            name: end_date_picker
+            properties: {pick_time: true}
+            type: DatePicker
+          name: flow_panel_3
+          properties: {}
+          type: FlowPanel
         - layout_properties: {}
           name: spacer_1
           properties: {height: 8}

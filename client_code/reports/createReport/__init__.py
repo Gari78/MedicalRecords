@@ -57,7 +57,7 @@ class createReport(createReportTemplate):
 
   def name_input_focus(self, **event_args):
     """This method is called when the TextBox gets focus"""
-    self.name_input.text = "" if "report" in self.name_input.text else self.name_input.text
+    self.name_input.text = "" if "Nombre del informe" in self.name_input.text else self.name_input.text
 
   def description_input_focus(self, **event_args):
     """This method is called when the text area gets focus"""
