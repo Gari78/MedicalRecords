@@ -19,7 +19,7 @@ def login(email,password):
   try:
     body_auth = {"email": email, "password": password}
     res = anvil.http.request(
-        url="http://46.24.211.201:5000/api/v1/login/",
+        url="http://46.25.119.157:5000/api/v1/login/",
         method="POST",
         data=body_auth,
         json=True
@@ -36,7 +36,7 @@ def login(email,password):
 def get_all_appointment_types():
     try:
       res = anvil.http.request(
-          url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value",
+          url="http://46.25.119.157:5000/api/v1/appointment_types/?fields=id,name,value",
           method="GET",
           json=True
       )
@@ -52,7 +52,7 @@ def get_all_appointment_types():
 @anvil.server.callable
 def get_all_appointments(initDate = None, endDate = None, type_id = None):
     try:
-      urlCall="http://46.24.211.201:5000/api/v1/appointments/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
+      urlCall="http://46.25.119.157:5000/api/v1/appointments/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
       if initDate and endDate:
         urlCall = f"{urlCall}&initDate={initDate}&endDate={endDate}"
       if type_id:
@@ -75,7 +75,7 @@ def create_appointment(appt):
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
-        url="http://46.24.211.201:5000/api/v1/appointments/",
+        url="http://46.25.119.157:5000/api/v1/appointments/",
         method="POST",
         data=appt,
         json=True
@@ -93,7 +93,7 @@ def update_appointment(appt,id):
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
-        url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
+        url=f"http://46.25.119.157:5000/api/v1/appointments/{id}/",
         method="PATCH",
         data=appt,
         json=True
@@ -110,7 +110,7 @@ def update_appointment(appt,id):
 def delete_appointment(id):
   try:
     res = anvil.http.request(
-        url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
+        url=f"http://46.25.119.157:5000/api/v1/appointments/{id}/",
         method="DELETE",
         json=True
     )
@@ -125,7 +125,7 @@ def delete_appointment(id):
 @anvil.server.callable
 def get_all_reports(initDate = None, endDate = None):
     try:
-      urlCall="http://46.24.211.201:5000/api/v1/reports/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
+      urlCall="http://46.25.119.157:5000/api/v1/reports/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
       if initDate and endDate:
         urlCall = f"{urlCall}&initDate={initDate}&endDate={endDate}"
       res = anvil.http.request(
@@ -146,7 +146,7 @@ def create_report(appt):
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
-        url="http://46.24.211.201:5000/api/v1/reports/",
+        url="http://46.25.119.157:5000/api/v1/reports/",
         method="POST",
         data=appt,
         json=True
@@ -164,7 +164,7 @@ def update_report(appt,id):
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
     res = anvil.http.request(
-        url=f"http://46.24.211.201:5000/api/v1/reports/{id}/",
+        url=f"http://46.25.119.157:5000/api/v1/reports/{id}/",
         method="PATCH",
         data=appt,
         json=True
