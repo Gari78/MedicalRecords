@@ -35,7 +35,7 @@ class createReport(createReportTemplate):
         "initDate": self.init_date_picker.date.isoformat(),
         "endDate": self.end_date_picker.date.isoformat()
       }
-      updated = anvil.server.call("update_report", appt, self.cita.get("id", 0))
+      updated = anvil.server.call("update_report", appt, self.report.get("id", 0))
     else:
       appt = {
         "name": self.name_input.text,
