@@ -176,3 +176,19 @@ def update_report(appt,id):
     print("Status code:", e.status)
     print("Cuerpo del error:", e)
     return({"status":e.status, "content":str(e)})
+
+@anvil.server.callable
+def delete_report(id):
+  try:
+    res = anvil.http.request(
+        url=f"http://46.25.119.157:5000/api/v1/reports/{id}/",
+        method="DELETE",
+        json=True
+    )
+    res = {"status": 200, "content": res}
+    return res
+  
+  except anvil.http.HttpError as e:
+    print("Status code:", e.status)
+    print("Cuerpo del error:", e)
+    return({"status":e.status, "content":str(e)})
