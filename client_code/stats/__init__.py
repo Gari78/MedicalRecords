@@ -133,15 +133,9 @@ class stats(statsTemplate):
     self.income_per_type_plot.layout = layout
 
   def update_income_plot(self):
-    data = [
-        {"date": "2025-04-05", "income": 320},
-        {"date": "2025-04-06", "income": 410},
-        {"date": "2025-04-07", "income": 280},
-        {"date": "2025-04-08", "income": 390},
-        {"date": "2025-04-09", "income": 420},
-        {"date": "2025-04-10", "income": 450},
-        {"date": "2025-04-11", "income": 500},
-    ]
+    endDate = self.end_date_picker.date.isoformat()
+    initDate = self.init_date_picker.date.isoformat()
+    data = anvil.server.call("get_daily_income",initDate,endDate)["content"]
     dates = [d.get("date") for d in data]
     daily_income = [d.get("income") for d in data]
     

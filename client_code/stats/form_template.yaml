@@ -13,7 +13,7 @@ components_by_slot:
             properties: {bold: false, font_size: 16, spacing_below: none, text: Desde}
             type: Label
           - layout_properties: {full_width_row: true, grid_position: 'TWAMHO,PNOUBL'}
-            name: date_picker_1
+            name: init_date_picker
             properties: {background: '', pick_time: true, spacing_above: none}
             type: DatePicker
           layout_properties: {expand: true, width: 405.42048095703126}
@@ -26,7 +26,7 @@ components_by_slot:
             properties: {bold: false, italic: false, spacing_below: none, text: Hasta, underline: false}
             type: Label
           - layout_properties: {full_width_row: true, grid_position: 'OIUCIC,BUJDBE'}
-            name: date_picker_2
+            name: end_date_picker
             properties: {pick_time: true, spacing_above: none}
             type: DatePicker
           layout_properties: {expand: true, width: 410.76333593749996}

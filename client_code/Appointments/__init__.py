@@ -87,7 +87,6 @@ class Appointments(AppointmentsTemplate):
   def appointments_get_all(self):
     endDate = self.end_date_picker.date.isoformat()
     initDate = self.init_date_picker.date.isoformat()
-    print(self.type_drop_down.selected_value)
     type_id = [item["id"] for item in self.types if item["name"]==self.type_drop_down.selected_value]
     type_id = type_id[0] if len(type_id)==1 else None
     
