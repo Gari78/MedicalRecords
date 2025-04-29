@@ -24,6 +24,7 @@ class stats(statsTemplate):
     self.onResize()
       
     self.summary = anvil.server.call("get_all_reports")["content"][1]
+    self.summary["patients"] = {data["name"]: {"quantity": data["count"], "money": data["money"]} for data in self.summary["insights"]}
     self.fill_pc_content()
     self.update_patients_per_type_plot()
     self.update_income_per_type_plot()
@@ -50,9 +51,10 @@ class stats(statsTemplate):
     self.layout.statisticsLink.role = 'selected'
 
   def fill_pc_content(self):
-    insights = {insight["name"]:{"quantity": insight["count"], "money":insight["money"]} for insight in self.item.get("insights", {})}
+    print()
+    insights = self.summary["patients"]
     normal = insights.get("Normales", {}) if "Normales" in insights else {"quantity": 0, "money":0}
-    telematic = insights.get("Telematicos", {}) if "Telematicos" in insights else {"quantity": 0, "money":0}
+    telematic = insights.get("Telemáticos", {}) if "Telemáticos" in insights else {"quantity": 0, "money":0}
     urgent = insights.get("Urgentes", {}) if "Urgentes" in insights else {"quantity": 0, "money":0}
     private = insights.get("Privados", {}) if "Privados" in insights else {"quantity": 0, "money":0}
     total = {"quantity": normal["quantity"] + telematic["quantity"] + urgent["quantity"] + private["quantity"],
@@ -95,8 +97,8 @@ class stats(statsTemplate):
     self.income_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Ingresos</div>
-            <div style="text-align: center;">Brutos: {self.item.get("grossincome")}€</div>
-            <div>Netos: {self.item.get("netincome")}€</div>
+            <div style="text-align: center;">Brutos: {self.summary.get("grossincome")}€</div>
+            <div>Netos: {self.summary.get("netincome")}€</div>
           </div>
     """
     
