@@ -49,8 +49,8 @@ class createAppointment(createAppointmentTemplate):
         "type": self.find_type_id(),
         "comment": self.description_input.text,
         "meds": self.meds_input.text,
-        "initDate": self.startTime.isoformat(),
-        "endDate": datetime.now().isoformat()
+        "initDate": self.startTime.isoformat().replace(" ","T"),
+        "endDate": datetime.now().isoformat().replace(" ","T")
       }
       created = anvil.server.call("create_appointment", appt)
     open_form('Appointments')      

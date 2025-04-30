@@ -38,9 +38,9 @@ components_by_slot:
             name: spacer_1
             properties: {height: 26.444427490234375}
             type: Spacer
-          - event_bindings: {click: button_1_click}
+          - event_bindings: {click: update_button_click}
             layout_properties: {grid_position: 'IPAZNY,ZQWWED'}
-            name: button_1
+            name: update_button
             properties: {role: full-width-button, text: Actualizar}
             type: Button
           name: column_panel_3

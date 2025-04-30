@@ -17,7 +17,7 @@ class Appointments(AppointmentsTemplate):
     self.init_components(**properties)
     self.apply_filters.enabled = False
     self.end_date_picker.date = datetime.now()
-    self.init_date_picker.date = self.end_date_picker.date - timedelta(days=7)
+    self.init_date_picker.date = self.end_date_picker.date - timedelta(days=30)
     
     self.types = self.appointment_types_get_all()
     self.data = self.appointments_get_all()
@@ -85,8 +85,8 @@ class Appointments(AppointmentsTemplate):
     self.AppointmentListPanel.items = auxdata
 
   def appointments_get_all(self):
-    endDate = self.end_date_picker.date.isoformat()
-    initDate = self.init_date_picker.date.isoformat()
+    endDate = self.end_date_picker.date.isoformat().replace(" ","T")
+    initDate = self.init_date_picker.date.isoformat().replace(" ","T")
     type_id = [item["id"] for item in self.types if item["name"]==self.type_drop_down.selected_value]
     type_id = type_id[0] if len(type_id)==1 else None
     

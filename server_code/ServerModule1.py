@@ -211,3 +211,26 @@ def get_daily_income(initDate = None, endDate = None):
       print("Status code:", e.status)
       print("Cuerpo del error:", e)
       return({"status":e.status, "content":str(e)})
+    
+@anvil.server.callable
+def get_appointments_insights(initDate = None, endDate = None):
+    try:
+      urlCall="http://46.25.119.157:5000/api/v1/stats/appointmentsInsights/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
+      if initDate and endDate:
+        if type(initDate) is not str:
+          initDate = initDate.isoformat()
+        if type(endDate) is not str:
+          endDate = endDate.isoformat()
+        urlCall = f"{urlCall}&initDate={initDate}&endDate={endDate}"
+      res = anvil.http.request(
+          url=urlCall,
+          method="GET",
+          json=True
+      )
+      res = {"status": 200, "content": res}
+      return res
+  
+    except anvil.http.HttpError as e:
+      print("Status code:", e.status)
+      print("Cuerpo del error:", e)
+      return({"status":e.status, "content":str(e)})

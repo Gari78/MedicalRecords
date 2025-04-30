@@ -17,8 +17,7 @@ class createReport(createReportTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    self.report = report  # Guardamos la report por si es una edición
-    print(f"Report: {report}")
+    self.report = report
 
     if self.report:
       # Rellenar los campos con los datos existentes
@@ -32,16 +31,16 @@ class createReport(createReportTemplate):
       appt = {
         "name": self.name_input.text,
         "comment": self.description_input.text,
-        "initDate": self.init_date_picker.date.isoformat(),
-        "endDate": self.end_date_picker.date.isoformat()
+        "initDate": self.init_date_picker.date.isoformat().replace(" ","T"),
+        "endDate": self.end_date_picker.date.isoformat().replace(" ","T")
       }
       updated = anvil.server.call("update_report", appt, self.report.get("id", 0))
     else:
       appt = {
         "name": self.name_input.text,
         "comment": self.description_input.text,
-        "initDate": self.init_date_picker.date.isoformat(),
-        "endDate": self.end_date_picker.date.isoformat()
+        "initDate": self.init_date_picker.date.isoformat().replace(" ","T"),
+        "endDate": self.end_date_picker.date.isoformat().replace(" ","T")
       }
       created = anvil.server.call("create_report", appt)
     open_form("reports")

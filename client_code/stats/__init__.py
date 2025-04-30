@@ -11,6 +11,7 @@ from anvil.tables import app_tables
 import plotly.graph_objs as go
 from anvil.js import window
 import anvil.js
+from datetime import datetime, timedelta, timezone
 
 
 class stats(statsTemplate):
@@ -20,11 +21,13 @@ class stats(statsTemplate):
     self.income_per_type_plot_original_height = self.income_per_type_plot.height
     self.patients_per_type_plot_original_height = self.patients_per_type_plot.height
     self.income_plot_original_height = self.income_plot.height
+    self.end_date_picker.date = datetime.now()
+    self.init_date_picker.date = self.end_date_picker.date - timedelta(days=30)
+    self.summary = {}
 
     self.onResize()
-      
-    self.summary = anvil.server.call("get_all_reports")["content"][1]
-    self.summary["patients"] = {data["name"]: {"quantity": data["count"], "money": data["money"]} for data in self.summary["insights"]}
+    
+    self.get_summary()
     self.fill_pc_content()
     self.update_patients_per_type_plot()
     self.update_income_per_type_plot()
@@ -51,7 +54,6 @@ class stats(statsTemplate):
     self.layout.statisticsLink.role = 'selected'
 
   def fill_pc_content(self):
-    print()
     insights = self.summary["patients"]
     normal = insights.get("Normales", {}) if "Normales" in insights else {"quantity": 0, "money":0}
     telematic = insights.get("Telemáticos", {}) if "Telemáticos" in insights else {"quantity": 0, "money":0}
@@ -97,8 +99,8 @@ class stats(statsTemplate):
     self.income_text.content = f"""
       <div style="font-size: 1.rem; color: #6b7280; padding-right: 0.75rem; width: 8rem;">
             <div style="font-weight: 700; color: #374151;">Ingresos</div>
-            <div style="text-align: center;">Brutos: {self.summary.get("grossincome")}€</div>
-            <div>Netos: {self.summary.get("netincome")}€</div>
+            <div style="text-align: center;">Brutos: {total.get("money")}€</div>
+            <div>Netos: {total.get("money")*0.7}€</div>
           </div>
     """
     
@@ -133,8 +135,8 @@ class stats(statsTemplate):
     self.income_per_type_plot.layout = layout
 
   def update_income_plot(self):
-    endDate = self.end_date_picker.date.isoformat()
-    initDate = self.init_date_picker.date.isoformat()
+    endDate = self.end_date_picker.date.isoformat().replace(" ","T")
+    initDate = self.init_date_picker.date.isoformat().replace(" ","T")
     data = anvil.server.call("get_daily_income",initDate,endDate)["content"]
     dates = [d.get("date") for d in data]
     daily_income = [d.get("income") for d in data]
@@ -181,7 +183,18 @@ class stats(statsTemplate):
     self.income_plot.data = [bar_trace, line_trace]
     self.income_plot.layout = layout
 
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  def update_button_click(self, **event_args):
+    self.summary = {}
+    self.summary["insights"] = anvil.server.call("get_appointments_insights",self.init_date_picker.date, self.end_date_picker.date)["content"]
+    self.summary["patients"] = {data["type"]: {"quantity": data["count"], "money": data["income"]} for data in self.summary["insights"]}
+    self.update_income_plot()
+    self.fill_pc_content()
+    self.update_patients_per_type_plot()
+
+  def get_summary(self):
+    self.summary = {}
+    endDate = self.end_date_picker.date.isoformat()
+    initDate = self.init_date_picker.date.isoformat()
+    self.summary["insights"] = anvil.server.call("get_appointments_insights",initDate, endDate)["content"]
+    self.summary["patients"] = {data["type"]: {"quantity": data["count"], "money": data["income"]} for data in self.summary["insights"]}
 
