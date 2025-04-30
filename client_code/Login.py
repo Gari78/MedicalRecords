@@ -16,11 +16,15 @@ class Login(LoginTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     if window.innerHeight > window.innerWidth:
+      self.xy_panel_column_copy.visible = True
+      self.xy_panel_column.visible = False      
       self.xy_panel.height = window.innerHeight
       self.xy_panel_column.height = window.innerHeight
       self.xy_panel_column.width = window.innerWidth * 0.9
       self.spacer_1.height = window.innerHeight * 0.25
     else:
+      self.xy_panel_column_copy.visible = False
+      self.xy_panel_column.visible = True    
       self.xy_panel.height = window.innerHeight * 0.85
       self.xy_panel_column.height = window.innerHeight * 0.85
 
@@ -40,3 +44,11 @@ class Login(LoginTemplate):
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Duty')
+
+  def mail_input_copy_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def pwd_input_copy_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass

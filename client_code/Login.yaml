@@ -60,6 +60,66 @@ components:
     name: xy_panel_column
     properties: {background: 'theme:Login Overlay 1', height: 582, spacing_above: none, spacing_below: none}
     type: XYPanel
+  - components:
+    - components:
+      - layout_properties: {}
+        name: spacer_1_copy
+        properties: {height: 49.33332824707031}
+        type: Spacer
+      - components:
+        - event_bindings: {focus: mail_input_focus, pressed_enter: mail_input_copy_pressed_enter}
+          layout_properties: {}
+          name: mail_input_copy
+          properties: {background: 'theme:On Primary', font_size: 12, role: null, text: Correo Electrónico, type: email}
+          type: TextBox
+        - event_bindings: {focus: pwd_input_focus, pressed_enter: pwd_input_copy_pressed_enter}
+          layout_properties: {}
+          name: pwd_input_copy
+          properties: {background: 'theme:On Primary', font_size: 12, hide_text: true, role: null, text: Contraseña}
+          type: TextBox
+        - event_bindings: {click: login_button_click}
+          layout_properties: {width: null}
+          name: login_button_copy
+          properties:
+            background: theme:Outline
+            foreground: theme:On Primary
+            role: null
+            spacing:
+              padding: [0, 62, 0, 55]
+            text: Login
+          type: Button
+        name: rich_text_1_copy
+        properties:
+          content: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> \n  <title>Markdown Example</title>\n  <style>\n    h2 { \n      font-size: 16px; \n      color: black;\n      font-weight: bold;\n    }\n    h5 { \n      font-size: 10px; \n      color: gray;\n      font-weight: bold;\n    }\n    h6 { \n      font-size: 10px; \n      color: gray;\n      font-weight: normal;\n    }\n  </style>\n</head>\n<body>\n  <!-- Title and subtitle -->\n  <h1 style=\"padding-left: 8px;\"><b>Bienvenido</b></h1>\n  <h5 style=\"padding-left: 8px;\"><b>Inicia sesión para continuar</h5>\n</body>\n</html>"
+          format: restricted_html
+          spacing_above: none
+          spacing_below: none
+        type: RichText
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'QSROHK,BAWCCE'}
+            name: google_copy
+            properties: {height: 21, source: 'https://www.svgrepo.com/show/475656/google-color.svg'}
+            type: Image
+          name: link_1_copy
+          properties: {}
+          type: Link
+        - event_bindings: {click: link_2_click}
+          name: link_2_copy
+          properties: {font_size: 12, text: Continuar con google}
+          type: Link
+        layout_properties: {}
+        name: flow_panel_1_copy
+        properties: {align: center, gap: small}
+        type: FlowPanel
+      layout_properties: {width: 250.44439697265625, x: 7.812508478760719, y: 8.090277567505836}
+      name: linear_panel_1_copy
+      properties: {}
+      type: LinearPanel
+    layout_properties: {width: 267.6458435058594, x: 40.04166666790843, y: 0}
+    name: xy_panel_column_copy
+    properties: {background: 'theme:Login Overlay 1', height: 582, spacing_above: none, spacing_below: none}
+    type: XYPanel
   layout_properties: {full_width_row: true, grid_position: 'JDXMBL,YIAZKL'}
   name: xy_panel
   properties: {height: 574, role: tonal-card}
