@@ -14,6 +14,28 @@ import anvil.http
 # them with @anvil.server.callable.
 # Here is an example - you can replace it with your own:
 #
+def secure_endpoint_call(url, data: dict=None, method: str="GET", json: bool=True):
+  auth_token = anvil.server.session.get('auth_token', None)
+  if not auth_token:
+    return {"res": "not authenticated", "status": 401}
+  headers = {'Authorization': f"Bearer {auth_token}"}
+
+  if data is not None:
+    res = anvil.http.request(
+          url=url,
+          method=method,
+          data=data,
+          json=True
+      )
+  else:
+    res = anvil.http.request(
+          url=url,
+          method=method,
+          json=True
+      )
+    
+  return res
+
 @anvil.server.callable
 def login(email,password):
   try:
@@ -24,6 +46,8 @@ def login(email,password):
         data=body_auth,
         json=True
     )
+    anvil.server.session['auth_token'] = res["access_token"]
+    anvil.server.session['user_info'] = res["user_info"]
     res["status"] = 200
     return res
   
@@ -35,7 +59,7 @@ def login(email,password):
 @anvil.server.callable
 def get_all_appointment_types():
     try:
-      res = anvil.http.request(
+      res = secure_endpoint_call(
           url="http://46.24.211.201:5000/api/v1/appointment_types/?fields=id,name,value",
           method="GET",
           json=True
@@ -57,7 +81,7 @@ def get_all_appointments(initDate = None, endDate = None, type_id = None):
         urlCall = f"{urlCall}&initDate={initDate}&endDate={endDate}"
       if type_id:
         urlCall = f"{urlCall}&type={type_id}"
-      res = anvil.http.request(
+      res = secure_endpoint_call(
           url=urlCall,
           method="GET",
           json=True
@@ -74,7 +98,7 @@ def get_all_appointments(initDate = None, endDate = None, type_id = None):
 def create_appointment(appt):
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
-    res = anvil.http.request(
+    res = secure_endpoint_call(
         url="http://46.24.211.201:5000/api/v1/appointments/",
         method="POST",
         data=appt,
@@ -92,7 +116,7 @@ def create_appointment(appt):
 def update_appointment(appt,id):
   appt["doctor"] = "76bf31f8-538a-4d99-8d45-26f5d39528fb"
   try:
-    res = anvil.http.request(
+    res = secure_endpoint_call(
         url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
         method="PATCH",
         data=appt,
@@ -109,7 +133,7 @@ def update_appointment(appt,id):
 @anvil.server.callable
 def delete_appointment(id):
   try:
-    res = anvil.http.request(
+    res = secure_endpoint_call(
         url=f"http://46.24.211.201:5000/api/v1/appointments/{id}/",
         method="DELETE",
         json=True
@@ -128,7 +152,7 @@ def get_all_reports(initDate = None, endDate = None):
       urlCall="http://46.24.211.201:5000/api/v1/reports/?doctor=76bf31f8-538a-4d99-8d45-26f5d39528fb"
       if initDate and endDate:
         urlCall = f"{urlCall}&initDate={initDate}&endDate={endDate}"
-      res = anvil.http.request(
+      res = secure_endpoint_call(
           url=urlCall,
           method="GET",
           json=True
