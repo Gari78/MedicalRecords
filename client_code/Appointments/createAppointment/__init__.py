@@ -10,6 +10,7 @@ from anvil.tables import app_tables
 import time
 import anvil.http
 from anvil.js import window
+import anvil.js
 from datetime import datetime, timedelta
 
 
@@ -49,8 +50,8 @@ class createAppointment(createAppointmentTemplate):
         "type": self.find_type_id(),
         "comment": self.description_input.text,
         "meds": self.meds_input.text,
-        "initDate": self.startTime.isoformat().replace(" ","T"),
-        "endDate": datetime.now().isoformat().replace(" ","T")
+        "initDate": self.format_date_with_timezone(self.startTime),
+        "endDate": self.format_date_with_timezone(datetime.now())
       }
       created = anvil.server.call("create_appointment", appt)
     open_form('Appointments')      
@@ -110,7 +111,6 @@ class createAppointment(createAppointmentTemplate):
       elapsed_seconds = timelapse.seconds % 60 
       self.appointment_timer.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
     
-    
   def fill_phone_content(self):
     if self.cita:
       self.create_form_title.text = "Editar cita"
@@ -122,5 +122,37 @@ class createAppointment(createAppointmentTemplate):
       timelapse = datetime.fromisoformat(self.cita.get('endDate', 'miau').replace("Z","")) - datetime.fromisoformat(self.cita.get('initDate', 'miau').replace("Z",""))
       elapsed_minutes = timelapse.seconds // 60
       elapsed_seconds = timelapse.seconds % 60 
-      self.appointment_timer_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"
+      self.appointment_timer_copy.text = f"{elapsed_minutes:02}:{elapsed_seconds:02}"  
+  
+  def get_browser_timezone_offset(self):
+    """Obtiene el offset de la zona horaria del navegador del usuario en minutos"""
+    # Esto accede a la API JavaScript del navegador para obtener la zona horaria local
+    return anvil.js.window.new(anvil.js.Date()).getTimezoneOffset()
+
+  def get_browser_timezone_name(self):
+    """Intenta obtener el nombre de la zona horaria del navegador"""
+    try:
+      # Esto funciona en navegadores modernos pero puede no ser compatible con todos
+      return anvil.js.Intl.DateTimeFormat().resolvedOptions().timeZone
+    except:
+      return None
+
+  def format_date_with_timezone(self,dt):
+    """Formatea una fecha Python con la zona horaria del navegador"""
+    if not isinstance(dt, datetime):
+      return None
+
+    # Obtener el offset en minutos (negativo porque getTimezoneOffset devuelve el contrario)
+    offset_minutes = -self.get_browser_timezone_offset()
+
+    # Calcular horas y minutos
+    hours = int(offset_minutes / 60)
+    minutes = abs(offset_minutes % 60)
+
+    # Construir el string de offset
+    sign = '+' if hours >= 0 else '-'
+    offset_str = f"{sign}{abs(hours):02d}:{minutes:02d}"
+
+    # Formatear la fecha
+    return dt.isoformat().replace(" ", "T") + offset_str
 
