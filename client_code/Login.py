@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import alert
 from anvil.js import window
+import anvil.http
 
 
 class Login(LoginTemplate):
@@ -29,7 +30,13 @@ class Login(LoginTemplate):
       self.xy_panel_column.height = window.innerHeight * 0.85
 
   def login_button_click(self, **event_args):
-    res = anvil.server.call("login",self.mail_input.text,self.pwd_input.text)
+    body_auth = {"email": self.mail_input.text, "password": self.pwd_input.text}
+    res = anvil.http.request(
+        url="http://46.25.119.157:5000/api/v1/login/",
+        method="POST",
+        data=body_auth,
+        json=True
+    )
     if res["status"] == 200:
       open_form('Duty')
     else:
