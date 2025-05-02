@@ -30,13 +30,7 @@ class Login(LoginTemplate):
       self.xy_panel_column.height = window.innerHeight * 0.85
 
   def login_button_click(self, **event_args):
-    body_auth = {"email": self.mail_input.text, "password": self.pwd_input.text}
-    res = anvil.http.request(
-        url="http://46.25.119.157:5000/api/v1/login/",
-        method="POST",
-        data=body_auth,
-        json=True
-    )
+    res = anvil.server.call("login",self.mail_input.text,self.pwd_input.text)
     if res["status"] == 200:
       open_form('Duty')
     else:
