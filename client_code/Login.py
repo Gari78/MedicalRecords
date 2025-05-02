@@ -37,6 +37,7 @@ class Login(LoginTemplate):
         data=body_auth,
         json=True
     )
+    print(res)
     if res["status"] == 200:
       open_form('Duty')
     else:
