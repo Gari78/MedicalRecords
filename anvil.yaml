@@ -58,3 +58,4 @@ services:
   source: /runtime/services/google.yml
 startup: {module: Login, type: form}
 startup_form: null
+uplink_visible: true
