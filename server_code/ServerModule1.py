@@ -15,9 +15,8 @@ import anvil.http
 # Here is an example - you can replace it with your own:
 #
 def secure_endpoint_call(url, data: dict=None, method: str="GET", json: bool=True):
-  #print(data)
-  #print(url)
-  #print(method)
+  print(data)
+  print(url)
   auth_token = anvil.server.session.get('auth_token', None)
   if not auth_token:
     return {"res": "not authenticated", "status": 401}
@@ -36,7 +35,7 @@ def secure_endpoint_call(url, data: dict=None, method: str="GET", json: bool=Tru
           method=method,
           json=True
       )
-    
+  print(res)
   return res
 
 @anvil.server.callable
@@ -80,7 +79,6 @@ def get_all_appointment_types():
   
 @anvil.server.callable
 def get_all_appointments(initDate = None, endDate = None, type_id = None):
-    print(anvil.server.session.get('user_info', None))
     try:
       urlCall=f"http://46.25.119.157:5000/api/v1/appointments/?doctor={anvil.server.session['user_info']['id']}"
       if initDate and endDate:
@@ -93,6 +91,7 @@ def get_all_appointments(initDate = None, endDate = None, type_id = None):
           json=True
       )
       res = {"status": 200, "content": res}
+      print(res)
       return res
     
     except anvil.http.HttpError as e:
